@@ -24,15 +24,12 @@ class Product extends Model
         'name', 'link', 'identifier'
     ];
 
-    public function topic()
-    {
+    public function topic() {
         return $this->belongsTo('App\Topic','topic_id');
     }
 
-    public function groups()
-    {
-        return $this->hasMany('App\Group','product_id');
+    public function groups() {
+        return $this->belongsToMany('App\Group','feature', 'group_id', 'product_id')->withPivot('value');
     }
-
 
 }

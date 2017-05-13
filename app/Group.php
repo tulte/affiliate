@@ -30,9 +30,8 @@ class Group extends Model
         'name',
     ];
 
-    public function feature()
-    {
-        return $this->hasOne('App\Feature','group_id');
+    public function products() {
+        return $this->belongsToMany('App\Product','feature', 'group_id', 'product_id')->withPivot('value');
     }
 
 

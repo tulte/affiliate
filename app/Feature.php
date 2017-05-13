@@ -27,7 +27,7 @@ class Feature extends Model
      * @var array
      */
     protected $fillable = [
-        'value', 'group_id'
+        'value', 'product_id', 'group_id'
     ];
 
 
