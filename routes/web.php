@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Authentication routes...
+Route::get('admin/login', ['as' => 'admin.login', 'uses' => 'AdminLoginController@index']);
+Route::post('admin/login', 'AdminLoginController@login');
+Route::get('admin/logout', ['as' => 'logout', 'uses' => 'AdminLoginController@logout']);
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('admin',['as' => 'admin.index', 'uses'=>'AdminController@index']);
+});
+
 Route::get('/datenschutz', function () {
     return view('datenschutz');
 });
