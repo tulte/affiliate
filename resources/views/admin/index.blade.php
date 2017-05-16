@@ -4,9 +4,7 @@
 @section('content')
 
 
-    <div class="container content">
-        ADMIN
-    </div><!--/container-->
+    ADMIN
 
 
 @endsection

@@ -19,7 +19,7 @@ class AdminLoginController extends Controller {
     public function login(Request $request) {
         $credentials = ['email' => $request->input('email'), 'password' => $request->input('password')];
         if (Auth::attempt($credentials)) {
-            return 'okay';
+            return redirect()->route('admin.index');
         }
         return redirect()->route('admin.login')->with('message', 'Login Failed');
     }

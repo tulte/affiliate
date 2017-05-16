@@ -26,7 +26,45 @@
         <div class="wrapper">
 
 
-        @yield('content')
+        <div class="container content">
+            <div class="row">
+                <!-- Begin Sidebar Menu -->
+                <div class="col-md-3">
+                    <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+                        <!-- System -->
+                        <li class="list-group-item list-toggle collapse">
+                            <a data-parent="#sidebar-nav">System</a>
+                            <ul id="collapse-typography" class="collapse in">
+                                <li><a href="{{route('admin.index')}}">User</a></li>
+                                <li><a href="{{route('admin.index')}}">Layout</a></li>
+                            </ul>
+                        </li>
+                        <!-- End System -->
+
+                        <!-- Affiliate -->
+                        <li class="list-group-item list-toggle collapse">
+                            <a data-parent="#sidebar-nav">Affiliate</a>
+                            <ul id="collapse-typography" class="collapse in">
+                                <li><a href="{{route('admin.index')}}">Topics</a></li>
+                                <li>
+                                    <a href="{{route('admin.index')}}"></i>Features</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- End Affiliate -->
+
+
+                    </ul>
+                </div>
+                <!-- End Sidebar Menu -->
+
+                <!-- Begin Content -->
+                <div class="col-md-9">
+                    @yield('content')
+                </div>
+                <!-- End Content -->
+
+
 
 
         </div><!--/wrapper-->
