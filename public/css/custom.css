@@ -1,1 +1,13 @@
 /* Add here all your css styles (customizations) */
+
+table {
+    font-size: 12px;
+}
+
+input {
+    font-size: 12px;
+}
+
+table.dataTable {
+    border-collapse: collapse;
+}

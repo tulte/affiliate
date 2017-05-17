@@ -23,6 +23,13 @@ Route::get('admin/logout', ['as' => 'logout', 'uses' => 'AdminLoginController@lo
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('admin',['as' => 'admin.index', 'uses'=>'AdminController@index']);
+
+    Route::get('user',['as' => 'admin.user.index', 'uses'=>'AdminUserController@index']);
+    Route::get('user/edit/{id}',['as' => 'admin.user.edit', 'uses'=>'AdminUserController@edit']);
+    Route::get('user/destroy/{id}',['as' => 'admin.user.destroy', 'uses'=>'AdminUserController@destroy']);
+    Route::get('user/create',['as' => 'admin.user.create', 'uses'=>'AdminUserController@create']);
+    Route::post('user/save',['as' => 'admin.user.save', 'uses'=>'AdminUserController@save']);
+    Route::post('user/update/{id}',['as' => 'admin.user.update', 'uses'=>'AdminUserController@update']);
 });
 
 Route::get('/datenschutz', function () {

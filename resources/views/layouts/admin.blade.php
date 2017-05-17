@@ -10,6 +10,7 @@
         <title>Wetterstation</title>
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/header-default.css">
         <link rel="stylesheet" href="/css/footer-default.css">
@@ -17,6 +18,8 @@
         <link rel="stylesheet" href="/css/line-icons.css">
         <link rel="stylesheet" href="/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/page_pricing.css">
+        <link rel="stylesheet" href="/css/sky-forms.css">
+        <link rel="stylesheet" href="/css/custom-sky-forms.css">
         <link rel="stylesheet" href="/css/dark.css">
         <link rel="stylesheet" href="/css/custom.css">
 
@@ -35,7 +38,7 @@
                         <li class="list-group-item list-toggle collapse">
                             <a data-parent="#sidebar-nav">System</a>
                             <ul id="collapse-typography" class="collapse in">
-                                <li><a href="{{route('admin.index')}}">User</a></li>
+                                <li><a href="{{route('admin.user.index')}}">User</a></li>
                                 <li><a href="{{route('admin.index')}}">Layout</a></li>
                             </ul>
                         </li>
@@ -72,6 +75,8 @@
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.confirmation.js"></script>
+    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/js/back-to-top.js"></script>
     <script type="text/javascript" src="/js/smoothScroll.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
@@ -81,5 +86,8 @@
             App.init();
         });
     </script>
+
+    @yield('scripts');
+
     </body>
 </html>
