@@ -20,6 +20,8 @@ USE `affiliate` ;
 CREATE TABLE IF NOT EXISTS `affiliate`.`topic` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -28,10 +30,10 @@ ENGINE = InnoDB;
 -- Table `affiliate`.`feature`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `affiliate`.`feature` (
-  `topic_id` INT NOT NULL,
+  `product_id` INT NOT NULL,
   `group_id` INT NOT NULL,
   `value` VARCHAR(45) NULL,
-  PRIMARY KEY (`topic_id`, `group_id`))
+  PRIMARY KEY (`product_id`, `group_id`))
 ENGINE = InnoDB;
 
 
@@ -53,6 +55,19 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`user` (
   `email` VARCHAR(128) NULL,
   `password` VARCHAR(128) NULL,
   `remember_token` VARCHAR(128) NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `affiliate`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `affiliate`.`product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `topic_ic` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
