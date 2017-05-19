@@ -10,7 +10,7 @@
         <div class="container content">
 
             <div class="heading heading-v1 margin-bottom-20">
-                <h2>Wetterstationen</h2>
+                <h2>Wetterstationen -- Index</h2>
                 <p>Mit der Hilfe von Wetterstationen können Sie die Wetterdaten bequem zu Hause abrufen. Dabei gibt eine eine große Auswahl an unterschiedlichen Geräten. Wir helfen Ihnen die für Sie passende Wetterstation zu finden.</p>
             </div>
 

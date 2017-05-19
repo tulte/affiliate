@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 // Authentication routes...
 Route::get('admin/login', ['as' => 'admin.login', 'uses' => 'AdminLoginController@index']);
@@ -30,6 +27,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/create',['as' => 'admin.user.create', 'uses'=>'AdminUserController@create']);
     Route::post('user/save',['as' => 'admin.user.save', 'uses'=>'AdminUserController@save']);
     Route::post('user/update/{id}',['as' => 'admin.user.update', 'uses'=>'AdminUserController@update']);
+
+    Route::get('topic',['as' => 'admin.topic.index', 'uses'=>'AdminTopicController@index']);
+    Route::get('topic/edit/{id}',['as' => 'admin.topic.edit', 'uses'=>'AdminTopicController@edit']);
+    Route::get('topic/destroy/{id}',['as' => 'admin.topic.destroy', 'uses'=>'AdminTopicController@destroy']);
+    Route::get('topic/create',['as' => 'admin.topic.create', 'uses'=>'AdminTopicController@create']);
+    Route::post('topic/save',['as' => 'admin.topic.save', 'uses'=>'AdminTopicController@save']);
+    Route::post('topic/update/{id}',['as' => 'admin.topic.update', 'uses'=>'AdminTopicController@update']);
 });
 
 Route::get('/datenschutz', function () {
@@ -43,3 +47,6 @@ Route::get('/haftungsausschluss', function () {
 Route::get('/impressum', function () {
     return view('impressum');
 });
+
+Route::get('/{topic}', ['as' => 'affiliate.topic', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
+Route::get('/', ['as' => 'affiliate.index', 'uses' => 'AffiliateController@index']);
