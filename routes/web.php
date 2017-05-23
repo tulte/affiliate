@@ -34,6 +34,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('topic/create',['as' => 'admin.topic.create', 'uses'=>'AdminTopicController@create']);
     Route::post('topic/save',['as' => 'admin.topic.save', 'uses'=>'AdminTopicController@save']);
     Route::post('topic/update/{id}',['as' => 'admin.topic.update', 'uses'=>'AdminTopicController@update']);
+
+    Route::get('product',['as' => 'admin.product.index', 'uses'=>'AdminProductController@index']);
+    Route::get('product/edit/{id}',['as' => 'admin.product.edit', 'uses'=>'AdminProductController@edit']);
+    Route::get('product/destroy/{id}',['as' => 'admin.product.destroy', 'uses'=>'AdminProductController@destroy']);
+    Route::get('product/create',['as' => 'admin.product.create', 'uses'=>'AdminProductController@create']);
+    Route::post('product/save',['as' => 'admin.product.save', 'uses'=>'AdminProductController@save']);
+    Route::post('product/update/{id}',['as' => 'admin.product.update', 'uses'=>'AdminProductController@update']);
 });
 
 Route::get('/datenschutz', function () {

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Topic extends Model
+class Product extends Model
 {
 
     /**
@@ -13,7 +13,7 @@ class Topic extends Model
      *
      * @var string
      */
-    protected $table = 'topic';
+    protected $table = 'product';
 
     /**
      * The attributes that are mass assignable.
@@ -21,17 +21,12 @@ class Topic extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'link', 'identifier'
     ];
 
-
-    public static function getListIdName() {
-        $ret = [];
-        $entries = self::all();
-        foreach ($entries as $entry) {
-            $ret[$entry->id] = $entry->name;
-        }
-        return $ret;
+    public function topic()
+    {
+        return $this->belongsTo('App\Topic','topic_id');
     }
 
 

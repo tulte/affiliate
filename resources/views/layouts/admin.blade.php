@@ -49,9 +49,8 @@
                             <a data-parent="#sidebar-nav">Affiliate</a>
                             <ul id="collapse-typography" class="collapse in">
                                 <li><a href="{{route('admin.topic.index')}}">Topics</a></li>
-                                <li>
-                                    <a href="{{route('admin.index')}}"></i>Features</a>
-                                </li>
+                                <li><a href="{{route('admin.product.index')}}">Products</a></li>
+                                <li><a href="{{route('admin.index')}}"></i>Features</a></li>
                             </ul>
                         </li>
                         <!-- End Affiliate -->
