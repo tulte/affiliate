@@ -21,35 +21,34 @@ Route::get('admin/logout', ['as' => 'logout', 'uses' => 'AdminLoginController@lo
 Route::group(['middleware'=>'auth'],function(){
     Route::get('admin',['as' => 'admin.index', 'uses'=>'AdminController@index']);
 
-    Route::get('user',['as' => 'admin.user.index', 'uses'=>'AdminUserController@index']);
-    Route::get('user/edit/{id}',['as' => 'admin.user.edit', 'uses'=>'AdminUserController@edit']);
-    Route::get('user/destroy/{id}',['as' => 'admin.user.destroy', 'uses'=>'AdminUserController@destroy']);
-    Route::get('user/create',['as' => 'admin.user.create', 'uses'=>'AdminUserController@create']);
-    Route::post('user/save',['as' => 'admin.user.save', 'uses'=>'AdminUserController@save']);
+    Route::get('admin/user',['as' => 'admin.user.index', 'uses'=>'AdminUserController@index']);
+    Route::get('admin/user/edit/{id}',['as' => 'admin.user.edit', 'uses'=>'AdminUserController@edit']);
+    Route::get('admin/user/destroy/{id}',['as' => 'admin.user.destroy', 'uses'=>'AdminUserController@destroy']);
+    Route::get('admin/user/create',['as' => 'admin.user.create', 'uses'=>'AdminUserController@create']);
+    Route::post('admin/user/save',['as' => 'admin.user.save', 'uses'=>'AdminUserController@save']);
     Route::post('user/update/{id}',['as' => 'admin.user.update', 'uses'=>'AdminUserController@update']);
 
-    Route::get('topic',['as' => 'admin.topic.index', 'uses'=>'AdminTopicController@index']);
-    Route::get('topic/edit/{id}',['as' => 'admin.topic.edit', 'uses'=>'AdminTopicController@edit']);
-    Route::get('topic/destroy/{id}',['as' => 'admin.topic.destroy', 'uses'=>'AdminTopicController@destroy']);
-    Route::get('topic/create',['as' => 'admin.topic.create', 'uses'=>'AdminTopicController@create']);
-    Route::post('topic/save',['as' => 'admin.topic.save', 'uses'=>'AdminTopicController@save']);
-    Route::post('topic/update/{id}',['as' => 'admin.topic.update', 'uses'=>'AdminTopicController@update']);
+    Route::get('admin/topic',['as' => 'admin.topic.index', 'uses'=>'AdminTopicController@index']);
+    Route::get('admin/topic/edit/{id}',['as' => 'admin.topic.edit', 'uses'=>'AdminTopicController@edit']);
+    Route::get('admin/topic/destroy/{id}',['as' => 'admin.topic.destroy', 'uses'=>'AdminTopicController@destroy']);
+    Route::get('admin/topic/create',['as' => 'admin.topic.create', 'uses'=>'AdminTopicController@create']);
+    Route::post('admin/topic/save',['as' => 'admin.topic.save', 'uses'=>'AdminTopicController@save']);
+    Route::post('admin/topic/update/{id}',['as' => 'admin.topic.update', 'uses'=>'AdminTopicController@update']);
 
-    Route::get('product',['as' => 'admin.product.index', 'uses'=>'AdminProductController@index']);
-    Route::get('product/edit/{id}',['as' => 'admin.product.edit', 'uses'=>'AdminProductController@edit']);
-    Route::get('product/destroy/{id}',['as' => 'admin.product.destroy', 'uses'=>'AdminProductController@destroy']);
-    Route::get('product/create',['as' => 'admin.product.create', 'uses'=>'AdminProductController@create']);
-    Route::post('product/save',['as' => 'admin.product.save', 'uses'=>'AdminProductController@save']);
-    Route::post('product/update/{id}',['as' => 'admin.product.update', 'uses'=>'AdminProductController@update']);
+    Route::get('admin/product',['as' => 'admin.product.index', 'uses'=>'AdminProductController@index']);
+    Route::get('admin/product/edit/{id}',['as' => 'admin.product.edit', 'uses'=>'AdminProductController@edit']);
+    Route::get('admin/product/destroy/{id}',['as' => 'admin.product.destroy', 'uses'=>'AdminProductController@destroy']);
+    Route::get('admin/product/create',['as' => 'admin.product.create', 'uses'=>'AdminProductController@create']);
+    Route::post('admin/product/save',['as' => 'admin.product.save', 'uses'=>'AdminProductController@save']);
+    Route::post('admin/product/update/{id}',['as' => 'admin.product.update', 'uses'=>'AdminProductController@update']);
+
+    Route::get('admin/feature',['as' => 'admin.feature.index', 'uses'=>'AdminFeatureController@index']);
 });
 
 Route::get('/datenschutz', function () {
     return view('datenschutz');
 });
 
-Route::get('/haftungsausschluss', function () {
-    return view('haftungsausschluss');
-});
 
 Route::get('/impressum', function () {
     return view('impressum');

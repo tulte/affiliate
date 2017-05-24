@@ -68,7 +68,7 @@
                         <div class="col-md-6">
                             <p>
                                 2017 &copy; Copyright
-                                <a href="/datenschutz">Datenschutz</a> | <a href="/haftungsausschluss">Haftungsauschluss</a> | <a href="/impressum">Impressum</a>
+                                <a href="/datenschutz">Datenschutz</a> | <a href="/impressum">Impressum</a>
                             </p>
                         </div>
 

@@ -34,5 +34,10 @@ class Topic extends Model
         return $ret;
     }
 
+    public function products()
+    {
+        return $this->hasMany('App\Product','topic_id');
+    }
+
 
 }

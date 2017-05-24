@@ -5,15 +5,21 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Product extends Model
+class Group extends Model
 {
+
+    /**
+     * Disable Timestamps
+     *
+     */
+    public $timestamps = false;
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'product';
+    protected $table = 'group';
 
     /**
      * The attributes that are mass assignable.
@@ -21,17 +27,12 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'link', 'identifier'
+        'name',
     ];
 
-    public function topic()
+    public function feature()
     {
-        return $this->belongsTo('App\Topic','topic_id');
-    }
-
-    public function groups()
-    {
-        return $this->hasMany('App\Group','product_id');
+        return $this->hasOne('App\Feature','group_id');
     }
 
 
