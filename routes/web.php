@@ -43,6 +43,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('admin/product/update/{id}',['as' => 'admin.product.update', 'uses'=>'AdminProductController@update']);
 
     Route::get('admin/feature',['as' => 'admin.feature.index', 'uses'=>'AdminFeatureController@index']);
+    Route::get('admin/feature/feature/{topic}',['as' => 'admin.feature.feature', 'uses'=>'AdminFeatureController@feature']);
 });
 
 Route::get('/datenschutz', function () {

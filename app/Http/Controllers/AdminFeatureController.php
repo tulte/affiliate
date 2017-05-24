@@ -16,4 +16,14 @@ class AdminFeatureController extends Controller {
         return $topic;
     }
 
+    public function feature($topic) {
+        $topic = Topic::find($topic);
+        $topic->load('products.groups.feature');
+
+    }
+
+    private function buildTopicFeatureJson($data) {
+
+    }
+
 }
