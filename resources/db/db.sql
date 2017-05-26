@@ -31,6 +31,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `affiliate`.`feature` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NULL,
   `group_id` INT NULL,
   `value` VARCHAR(128) NULL,
   PRIMARY KEY (`id`))
@@ -42,7 +43,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `affiliate`.`group` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `product_id` INT NULL,
   `name` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
