@@ -15,13 +15,16 @@ class AdminTopicController extends Controller {
         return view('admin.topic.index', ['topics' => $topics]);
     }
 
-
     public function edit($id) {
         $topic = Topic::find($id);
         if($topic) {
             return view('admin.topic.edit', ['topic' => $topic]);
         }
         return redirect()->back();
+    }
+
+    public function feature($id) {
+        return view('admin.topic.feature', ['id' => $id]);
     }
 
     protected function validator(array $data, $id = null)

@@ -28,6 +28,17 @@ class AdminFeatureController extends Controller {
         $products = $this->getTopicProducts($topic);
 
         $ret['data'] = $this->getFeaturePivot($topic, $groups, $products);
+        $ret['columns'] = $this->getFeaturePivotColumns($products);
+
+        return $ret;
+    }
+
+    private function getFeaturePivotColumns($products) {
+        $ret = [];
+
+        foreach ($products as $product) {
+            $ret[] = ['title' => $product['name'], 'data' => $this->getProductIdStr($product['name'])];
+        }
 
         return $ret;
     }
@@ -40,13 +51,20 @@ class AdminFeatureController extends Controller {
             $row['DT_RowId'] = 'row_' . $topic['id'] . '_' . $group['id'];
             foreach ($products as $product) {
                 $feature = $this->getFeatureForProductAndGroup($topic, $group['name'], $product['name']);
-                $row[$product['name']] = $feature['value'];
+                $productIdStr = $this->getProductIdStr($product['name']);
+                $row[$productIdStr] = $feature['value'];
             }
             $ret[] = $row;
         }
 
         return $ret;
 
+    }
+
+    private function getProductIdStr($productName) {
+        $ret = strtolower($productName);
+        $ret = str_replace(' ', '_', $ret);
+        return $ret;
     }
 
     private function getFeatureForProductAndGroup($topic, $groupName, $productName) {

@@ -19,6 +19,7 @@
                                         <th>Name</th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -26,6 +27,9 @@
                                         <tr>
                                             <td>{{$topic->id}}</td>
                                             <td>{{$topic->name}}</td>
+                                            <td style="text-align: right;">
+                                                <a href="{{route('admin.topic.feature', [$topic->id])}}" ><i class="fa fa-2x fa-table" style="color:black"></i></a>
+                                            </td>
                                             <td style="text-align: right;">
                                                 <a href="{{route('admin.topic.edit', [$topic->id])}}" ><i class="fa fa-2x fa-edit" style="color:black"></i></a>
                                             </td>
@@ -57,7 +61,7 @@ $(function() {
         "pagingType": "simple",
         "columnDefs": [
             { "width": "10px", "targets": 0 },
-            { "width": "10px", "targets": [-1, -2] }
+            { "width": "10px", "targets": [-1, -2, -3] }
         ]
     });
 

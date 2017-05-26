@@ -34,6 +34,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('admin/topic/create',['as' => 'admin.topic.create', 'uses'=>'AdminTopicController@create']);
     Route::post('admin/topic/save',['as' => 'admin.topic.save', 'uses'=>'AdminTopicController@save']);
     Route::post('admin/topic/update/{id}',['as' => 'admin.topic.update', 'uses'=>'AdminTopicController@update']);
+    Route::get('admin/topic/feature/{id}',['as' => 'admin.topic.feature', 'uses'=>'AdminTopicController@feature']);
+
 
     Route::get('admin/product',['as' => 'admin.product.index', 'uses'=>'AdminProductController@index']);
     Route::get('admin/product/edit/{id}',['as' => 'admin.product.edit', 'uses'=>'AdminProductController@edit']);
@@ -42,9 +44,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('admin/product/save',['as' => 'admin.product.save', 'uses'=>'AdminProductController@save']);
     Route::post('admin/product/update/{id}',['as' => 'admin.product.update', 'uses'=>'AdminProductController@update']);
 
-    Route::get('admin/feature',['as' => 'admin.feature.index', 'uses'=>'AdminFeatureController@index']);
-
-    Route::get('admin/feature/feature/{topic}',['as' => 'admin.feature.feature', 'uses'=>'AdminFeatureController@feature']);
+    Route::get('admin/feature/{topic}',['as' => 'admin.feature', 'uses'=>'AdminFeatureController@feature']);
 
 });
 
