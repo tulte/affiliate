@@ -54,6 +54,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('admin/group/update/{topicid}/{id}',['as' => 'admin.group.update', 'uses'=>'AdminGroupController@update']);
 
 
+    Route::get('admin/article',['as' => 'admin.article.index', 'uses'=>'AdminArticleController@index']);
+    Route::get('admin/article/edit/{id}',['as' => 'admin.article.edit', 'uses'=>'AdminArticleController@edit']);
+    Route::get('admin/article/destroy/{id}',['as' => 'admin.article.destroy', 'uses'=>'AdminArticleController@destroy']);
+    Route::get('admin/article/create',['as' => 'admin.article.create', 'uses'=>'AdminArticleController@create']);
+    Route::post('admin/article/save',['as' => 'admin.article.save', 'uses'=>'AdminArticleController@save']);
+    Route::post('admin/article/update/{id}',['as' => 'admin.article.update', 'uses'=>'AdminArticleController@update']);
+
+
 });
 
 

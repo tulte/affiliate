@@ -77,6 +77,20 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`product` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `affiliate`.`article`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `affiliate`.`article` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `header` VARCHAR(45) NULL,
+  `text` TEXT NULL,
+  `topic_id` INT NULL,
+  `updated_at` DATETIME NULL,
+  `created_at` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
