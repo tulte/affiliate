@@ -22,6 +22,7 @@
                                     <input type="text" name="name" value=""/>
                                 </label>
                             </section>
+                        </fieldset>
 
                         <footer>
                             <button type="submit" class="btn-u">Save</button>

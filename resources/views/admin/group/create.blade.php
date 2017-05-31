@@ -30,6 +30,7 @@
                                 @endforeach
 
                             </section>
+                        </fieldset>
 
 
                         <footer>

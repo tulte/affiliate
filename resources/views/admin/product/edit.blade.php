@@ -37,6 +37,7 @@
                                     {!! Form::select('topic', $topics, $product->topic_id, ['class' => 'form-control']) !!}
                                 </label>
                             </section>
+                        </fieldset>
 
 
                         <footer>

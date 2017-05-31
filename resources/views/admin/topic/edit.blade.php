@@ -22,6 +22,7 @@
                                     <input type="text" name="name" value="{{$topic->name}}"/>
                                 </label>
                             </section>
+                        </fieldset>
 
 
                         <footer>

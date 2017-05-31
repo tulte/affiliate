@@ -37,6 +37,7 @@
                                     {!! Form::select('topic', $topics, null, ['class' => 'form-control']) !!}
                                 </label>
                             </section>
+                        </fieldset>
 
                         <footer>
                             <button type="submit" class="btn-u">Save</button>

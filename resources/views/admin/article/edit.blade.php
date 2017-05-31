@@ -32,6 +32,7 @@
                                     {!! Form::select('topic', $topics, $article->topic_id, ['class' => 'form-control']) !!}
                                 </label>
                             </section>
+                        </fieldset>
 
 
                         <footer>
