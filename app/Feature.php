@@ -30,6 +30,10 @@ class Feature extends Model
         'value', 'product_id', 'group_id'
     ];
 
+    public static function  findByGroupIdAndProductId($groupid, $productid) {
+        return self::where([['group_id', $groupid], ['product_id', $productid]])->first();
+    }
+
 
 
 }
