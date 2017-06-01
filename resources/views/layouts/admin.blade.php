@@ -51,6 +51,7 @@
                                 <li><a href="{{route('admin.topic.index')}}">Topics</a></li>
                                 <li><a href="{{route('admin.product.index')}}">Products</a></li>
                                 <li><a href="{{route('admin.article.index')}}">Articles</a></li>
+                                <li><a href="{{route('admin.info.index')}}">Infos</a></li>
                             </ul>
                         </li>
                         <!-- End Affiliate -->

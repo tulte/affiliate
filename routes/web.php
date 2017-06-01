@@ -62,6 +62,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('admin/article/update/{id}',['as' => 'admin.article.update', 'uses'=>'AdminArticleController@update']);
 
 
+    Route::get('admin/info',['as' => 'admin.info.index', 'uses'=>'AdminInfoController@index']);
+    Route::get('admin/info/edit/{id}',['as' => 'admin.info.edit', 'uses'=>'AdminInfoController@edit']);
+    Route::get('admin/info/destroy/{id}',['as' => 'admin.info.destroy', 'uses'=>'AdminInfoController@destroy']);
+    Route::get('admin/info/create',['as' => 'admin.info.create', 'uses'=>'AdminInfoController@create']);
+    Route::post('admin/info/save',['as' => 'admin.info.save', 'uses'=>'AdminInfoController@save']);
+    Route::post('admin/info/update/{id}',['as' => 'admin.info.update', 'uses'=>'AdminInfoController@update']);
+
+
 });
 
 

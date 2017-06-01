@@ -90,6 +90,18 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`article` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `affiliate`.`info`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `affiliate`.`info` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `header` VARCHAR(45) NULL,
+  `text` TEXT NULL,
+  `topic_id` INT NULL,
+  `updated_at` DATETIME NULL,
+  `created_at` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
