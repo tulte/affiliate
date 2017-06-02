@@ -23,8 +23,9 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`topic` (
   `intro` VARCHAR(1024) NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `unique` (`name` ASC))
+ENGINE = InnoDB
 
 
 -- -----------------------------------------------------

@@ -10,8 +10,8 @@
         <div class="container content">
 
             <div class="heading heading-v1 margin-bottom-20">
-                <h2>{{$topic}}</h2>
-                <p>Mit der Hilfe von Wetterstationen können Sie die Wetterdaten bequem zu Hause abrufen. Dabei gibt eine eine große Auswahl an unterschiedlichen Geräten. Wir helfen Ihnen die für Sie passende Wetterstation zu finden.</p>
+                <h2>{{$topic->name}}</h2>
+                <p>{!! $topic->intro !!}</p>
             </div>
 
             <!-- Pricing Mega v1 -->
