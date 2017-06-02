@@ -12,7 +12,7 @@
 @endif
 
             <div class="panel panel-grey">
-                    <form action="{{route('admin.article.save')}}" method="POST" autocomplete="off" class="sky-form">
+                    <form action="{{route('admin.article.save')}}" method="POST" autocomplete="off" class="sky-form" enctype="multipart/form-data">
                     {!! csrf_field() !!}
 
                         <fieldset>
@@ -26,6 +26,12 @@
                                 <label class="input">
                                     <textarea rows="10" cols="105" name="text"></textarea>
                                 </label>
+
+                                <label class="label">Image</label>
+                                <label for="file" class="input input-file">
+                                    <div class="button"><input type="file" id="image" name="image" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
+                                </label>
+
 
                                 <label class="label">Topic</label>
                                 <label class="input">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Topic;
 use App\Product;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminProductController extends Controller {
@@ -81,11 +82,38 @@ class AdminProductController extends Controller {
 
 
     private function saveProduct($product, $request) {
+        // image stuff
+        $image = $this->workProductImage($request, $product->image);
+        if($image !== null) {
+            $product->image = $image;
+        }
+
+        // db stuff
         $product->name = $request->name;
         $product->link = $request->link;
         $product->identifier = $request->identifier;
         $product->topic_id = $request->topic;
         $product->save();
+    }
+
+    private function workProductImage($request, $existingImage) {
+        $file = $request->file('image');
+        if($file) {
+            $extension = $file->getClientOriginalExtension();
+            $name = $file->getFilename() . '.' .  $extension;
+            $storage = Storage::disk('product');
+
+            // upload new file
+            $storage->put($name, \File::get($file->getRealPath()));
+            // delete existing
+            if($existingImage) {
+                $storage->delete(basename($existingImage));
+            }
+
+            return config('filesystems.disks.product.url') . '/' . $name;
+        }
+
+        return null;
     }
 
 }

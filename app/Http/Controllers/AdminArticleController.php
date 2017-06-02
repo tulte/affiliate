@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Topic;
 use App\Article;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminArticleController extends Controller {
@@ -73,18 +74,44 @@ class AdminArticleController extends Controller {
 
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         Article::find($id)->delete();
         return redirect()->route('admin.article.index');
     }
 
 
     private function saveArticle($article, $request) {
+        // image stuff
+        $image = $this->workArticleImage($request, $article->image);
+        if($image !== null) {
+            $article->image = $image;
+        }
+
+        // db stuff
         $article->header = $request->header;
         $article->text = $request->text;
         $article->topic_id = $request->topic;
         $article->save();
+    }
+
+    private function workArticleImage($request, $existingImage) {
+        $file = $request->file('image');
+        if($file) {
+            $extension = $file->getClientOriginalExtension();
+            $name = $file->getFilename() . '.' .  $extension;
+            $storage = Storage::disk('article');
+
+            // upload new file
+            $storage->put($name, \File::get($file->getRealPath()));
+            // delete existing
+            if($existingImage) {
+                $storage->delete(basename($existingImage));
+            }
+
+            return config('filesystems.disks.article.url') . '/' . $name;
+        }
+
+        return null;
     }
 
 }

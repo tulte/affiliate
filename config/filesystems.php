@@ -55,12 +55,16 @@ return [
             'visibility' => 'public',
         ],
 
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_KEY'),
-            'secret' => env('AWS_SECRET'),
-            'region' => env('AWS_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+        'article' => [
+            'driver' => 'local',
+            'root'   => public_path("images/article"),
+            'url'    => "images/article",
+        ],
+
+        'product' => [
+            'driver' => 'local',
+            'root'   => public_path("images/product"),
+            'url'    => "images/product",
         ],
 
     ],

@@ -21,7 +21,7 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'header', 'text', 'topic_id'
+        'header', 'text', 'image', 'topic_id'
     ];
 
     public function topic() {
