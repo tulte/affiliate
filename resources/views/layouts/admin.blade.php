@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/summernote.css">
         <link rel="stylesheet" href="/css/header-default.css">
         <link rel="stylesheet" href="/css/footer-default.css">
         <link rel="stylesheet" href="/css/animate.css">
@@ -76,6 +77,7 @@
     <script type="text/javascript" src="/js/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.confirmation.js"></script>
+    <script type="text/javascript" src="/js/summernote.min.js"></script>
     <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="/js/back-to-top.js"></script>
     <script type="text/javascript" src="/js/smoothScroll.js"></script>

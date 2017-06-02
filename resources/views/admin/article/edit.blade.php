@@ -24,7 +24,7 @@
 
                                 <label class="label">Text</label>
                                 <label class="input">
-                                    <textarea rows="10" cols="105" name="text">{{$article->text}}</textarea>
+                                    <textarea rows="10" cols="105" id="text" name="text">{{$article->text}}</textarea>
                                 </label>
 
                                 <label class="label">Image</label>
@@ -48,5 +48,17 @@
                     </form>
             </div>
 
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+$(function() {
+    $('#text').summernote();
+});
+
+</script>
 
 @endsection
