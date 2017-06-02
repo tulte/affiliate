@@ -21,6 +21,11 @@
                                 <label class="input">
                                     <input type="text" name="name" value=""/>
                                 </label>
+
+                                <label class="label">Intro</label>
+                                <label class="input">
+                                    <textarea rows="10" cols="105" id="intro" name="intro"></textarea>
+                                </label>
                             </section>
                         </fieldset>
 
@@ -31,5 +36,17 @@
                     </form>
             </div>
 
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+$(function() {
+    $('#intro').summernote();
+});
+
+</script>
 
 @endsection

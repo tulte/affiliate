@@ -40,7 +40,6 @@
                             <a data-parent="#sidebar-nav">System</a>
                             <ul id="collapse-typography" class="collapse in">
                                 <li><a href="{{route('admin.user.index')}}">User</a></li>
-                                <li><a href="{{route('admin.index')}}">Layout</a></li>
                             </ul>
                         </li>
                         <!-- End System -->

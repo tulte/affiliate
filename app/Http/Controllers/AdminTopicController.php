@@ -81,6 +81,7 @@ class AdminTopicController extends Controller {
 
     private function saveTopic($topic, $request) {
         $topic->name = $request->name;
+        $topic->intro = $request->intro;
         $topic->save();
     }
 

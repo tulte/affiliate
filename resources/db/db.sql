@@ -20,6 +20,7 @@ USE `affiliate` ;
 CREATE TABLE IF NOT EXISTS `affiliate`.`topic` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
+  `intro` VARCHAR(1024) NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`))
