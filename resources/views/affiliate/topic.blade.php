@@ -4,13 +4,22 @@
 @section('content')
 
 
-        <!--=== End Header ===-->
+        <!--=== Breadcrumbs ===-->
+        <div class="breadcrumbs breadcrumbs-light">
+            <div class="container">
+                <h1 class="pull-left">{{$topic->name}}</h1>
+                <ul class="pull-right breadcrumb">
+                    <li><a href="#">Vergleich</a></li>
+                    <li><a href="#">Neuigkeiten</a></li>
+                </ul>
+            </div>
+        </div><!--/breadcrumbs-->
+        <!--=== End Breadcrumbs ===-->
 
         <!--=== Content Part ===-->
         <div class="container content">
 
             <div class="heading heading-v1 margin-bottom-20">
-                <h2>{{$topic->name}}</h2>
                 <p>{!! $topic->intro !!}</p>
             </div>
 
@@ -38,7 +47,7 @@
                                 {{$product->name}}
                             </h3>
                             <h4 class="price">
-                                <img src="{{$product->image}}" height="45" width="45"/>
+                                <img src="/{{$product->image}}" height="45" width="45"/>
                             </h4>
                         </div>
                         <ul class="pricing-content list-unstyled ">
@@ -70,6 +79,21 @@
             <!-- End Pricing Mega v1 -->
         </div>
 
+        @foreach($topic->infos as $info)
+            @if($loop->iteration % 2)
+                <div class="bg-color-light margin-bottom-60">
+            @else
+                <div class="bg-color-white margin-bottom-60">
+            @endif
+                <div class="container content-md">
+                    <div class="headline-center-v2 headline-center-v2-dark margin-bottom-60">
+                        <h2>{{$info->header}}</h2>
+                        <span class="bordered-icon"><i class="fa fa-th-large"></i></span>
+                        {!! $info->text !!}
+                    </div><!--/Headline Center v2-->
+                </div><!--/end container-->
+            </div>
+        @endforeach
 
 
 @endsection

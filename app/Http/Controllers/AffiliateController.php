@@ -18,15 +18,17 @@ class AffiliateController extends Controller {
         if($entry === null) {
             abort(404);
         }
-        return view('affiliate.topic', ['topic' => $entry]);
+        return view('affiliate.topic', ['topic' => $entry, 'topics' => Topic::all()]);
     }
 
     private function getTopic($topic) {
         $entry = Cache::get($topic);
+        $entry = Topic::findByName($topic);
         if($entry === null) {
             $entry = Topic::findByName($topic);
             if($entry !== null) {
                 $entry->load('products.groups');
+                $entry->load('infos');
                 Cache::put($topic, $entry, 30);
             }
         }

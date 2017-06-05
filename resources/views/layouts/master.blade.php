@@ -47,9 +47,11 @@
             <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
                 <div class="container">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a href="/" >Wetterstationen</a>
-                        </li>
+                        @foreach($topics as $topic)
+                            <li>
+                                <a href="route('affiliate.topic.compare', [$topic->name])" >{{$topic->name}}</a>
+                            </li>
+                        @endforeach
 
                     </ul>
                 </div><!--/end container-->

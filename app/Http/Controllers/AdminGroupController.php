@@ -62,7 +62,13 @@ class AdminGroupController extends Controller {
             if(substr($input_key, 0, strlen('feature_')) === 'feature_') {
                 $productid = intval(preg_replace('/[^0-9]+/', '', $input_key), 10);
                 $feature = Feature::findByGroupIdAndProductId($id, $productid);
+                if($feature === null) {
+                    $feature = new Feature();
+                }
+
                 $feature->value = $input_value;
+                $feature->group_id = $group->id;
+                $feature->product_id = $productid;
                 $feature->save();
             }
         }
