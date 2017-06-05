@@ -83,5 +83,9 @@ Route::get('/impressum', function () {
     return view('impressum');
 });
 
+
 Route::get('/{topic}/vergleich', ['as' => 'affiliate.topic.compare', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
+Route::get('/{topic}/artikel', ['as' => 'affiliate.topic.article', 'uses' => 'AffiliateController@article'])->where('topic','.+');
+Route::get('/{topic}', ['as' => 'affiliate.topic', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
+
 Route::get('/', ['as' => 'affiliate.index', 'uses' => 'AffiliateController@index']);

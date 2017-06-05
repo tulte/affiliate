@@ -44,6 +44,11 @@ class Topic extends Model
         return $this->hasMany('App\Info','topic_id');
     }
 
+    public function articles()
+    {
+        return $this->hasMany('App\Article','topic_id');
+    }
+
     public static function findByName($value)  {
         return self::where('name', (string)$value)->first();
     }

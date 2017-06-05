@@ -9,8 +9,8 @@
             <div class="container">
                 <h1 class="pull-left">{{$topic->name}}</h1>
                 <ul class="pull-right breadcrumb">
-                    <li><a href="#">Vergleich</a></li>
-                    <li><a href="#">Neuigkeiten</a></li>
+                    <li><a href="{{route('affiliate.topic.compare', [$topic->name])}}">Vergleich</a></li>
+                    <li><a href="{{route('affiliate.topic.article', [$topic->name])}}">Neuigkeiten</a></li>
                 </ul>
             </div>
         </div><!--/breadcrumbs-->

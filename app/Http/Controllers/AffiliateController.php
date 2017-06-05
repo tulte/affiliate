@@ -21,6 +21,15 @@ class AffiliateController extends Controller {
         return view('affiliate.topic', ['topic' => $entry, 'topics' => Topic::all()]);
     }
 
+    public function article($topic) {
+        $entry = $this->getTopic($topic);
+
+        if($entry === null) {
+            abort(404);
+        }
+        return view('affiliate.article', ['topic' => $entry, 'topics' => Topic::all()]);
+    }
+
     private function getTopic($topic) {
         $entry = Cache::get($topic);
         $entry = Topic::findByName($topic);

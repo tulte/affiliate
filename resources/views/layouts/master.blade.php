@@ -49,7 +49,7 @@
                     <ul class="nav navbar-nav">
                         @foreach($topics as $topic)
                             <li>
-                                <a href="route('affiliate.topic.compare', [$topic->name])" >{{$topic->name}}</a>
+                                <a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a>
                             </li>
                         @endforeach
 
