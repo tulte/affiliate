@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 
+@section('title', 'Vergleich und Informationen')
+@section('description', 'Wissenswertes und Interessantes zu unterschiedlichen Produkten.')
+
 @section('content')
 
 

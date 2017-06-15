@@ -12,7 +12,7 @@
 @endif
 
             <div class="panel panel-grey">
-                    <form action="{{route('admin.topic.update',[$topic->id])}}" method="POST" autocomplete="off" class="sky-form">
+                    <form action="{{route('admin.topic.update',[$topic->id])}}" method="POST" autocomplete="off" class="sky-form" enctype="multipart/form-data">
                     {!! csrf_field() !!}
 
                         <fieldset>
@@ -22,6 +22,20 @@
                                     <input type="text" name="name" value="{{$topic->name}}"/>
                                 </label>
 
+                                <label class="label">Meta Title</label>
+                                <label class="input">
+                                    <input type="text" name="meta_title" value="{{$topic->meta_title}}"/>
+                                </label>
+
+                                <label class="label">Meta Description</label>
+                                <label class="input">
+                                    <input type="text" name="meta_description" value="{{$topic->meta_description}}"/>
+                                </label>
+
+                                <label class="label">Meta Image</label>
+                                <label for="file" class="input input-file">
+                                    <div class="button"><input type="file" id="meta_image" name="meta_image" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
+                                </label>
 
                                 <label class="label">Intro</label>
                                 <label class="input">

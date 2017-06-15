@@ -4,10 +4,8 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-        <title>Wetterstation</title>
+        <title>Admin</title>
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
@@ -88,7 +86,6 @@
         });
     </script>
 
-    @yield('scripts');
-
+    @yield('scripts')
     </body>
 </html>

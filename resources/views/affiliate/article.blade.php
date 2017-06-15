@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('title', $topic->meta_title)
+@section('description', $topic->meta_description)
+@section('image', $topic->meta_image)
 
 @section('content')
 

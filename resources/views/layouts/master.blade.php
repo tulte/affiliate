@@ -1,13 +1,27 @@
 <html>
     <head>
 
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Wetterstation</title>
+        <title>@yield('title')</title>
+        <meta name="description" content="@yield('description')" />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="@yield('title')">
+        <meta name="twitter:description" content="@yield('description')">
+        <meta name="twitter:image" content="/@yield('image')">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="@yield('title')" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="{{url()->current()}}" />
+        <meta property="og:image" content="/@yield('image')" />
+        <meta property="og:description" content="@yield('description')" />
+        <meta property="og:site_name" content="Vergleiche und Informationen" />
+
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/style.css">
@@ -32,8 +46,6 @@
 
                 </a>
                 <!-- End Logo -->
-
-
 
                 <!-- Toggle get grouped for better mobile display -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -78,12 +90,12 @@
                         <div class="col-md-6">
                             <ul class="footer-socials list-inline">
                                 <li>
-                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{env('APP_URL')}}" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook" target="blank">
                                         <i class="fa fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                    <a href="https://twitter.com/intent/tweet?hashtags={{env('APP_TAGS')}}&original_referer=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&ref_src=twsrc%5Etfw&related=twitterapi%2Ctwitter&text=@yield('description')&tw_p=tweetbutton&url={{env('APP_URL')}}" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
                                         <i class="fa fa-twitter"></i>
                                     </a>
                                 </li>

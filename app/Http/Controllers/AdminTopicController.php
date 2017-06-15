@@ -68,6 +68,7 @@ class AdminTopicController extends Controller {
         }
 
         $this->saveTopic($topic,$request);
+
         return redirect()->route('admin.topic.index');
 
     }
@@ -80,8 +81,16 @@ class AdminTopicController extends Controller {
 
 
     private function saveTopic($topic, $request) {
+        // image stuff
+        $image = $this->workImage('topic', 'meta_image', $request, $topic->meta_image);
+        if($image !== null) {
+            $topic->meta_image = $image;
+        }
+
         $topic->name = $request->name;
         $topic->intro = $request->intro;
+        $topic->meta_title = $request->meta_title;
+        $topic->meta_description = $request->meta_description;
         $topic->save();
     }
 

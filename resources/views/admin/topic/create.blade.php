@@ -12,7 +12,7 @@
 @endif
 
             <div class="panel panel-grey">
-                    <form action="{{route('admin.topic.save')}}" method="POST" autocomplete="off" class="sky-form">
+                    <form action="{{route('admin.topic.save')}}" method="POST" autocomplete="off" class="sky-form" enctype="multipart/form-data">
                     {!! csrf_field() !!}
 
                         <fieldset>
@@ -21,6 +21,22 @@
                                 <label class="input">
                                     <input type="text" name="name" value=""/>
                                 </label>
+
+                                <label class="label">Meta Title</label>
+                                <label class="input">
+                                    <input type="text" name="meta_title" value=""/>
+                                </label>
+
+                                <label class="label">Meta Description</label>
+                                <label class="input">
+                                    <input type="text" name="meta_description" value=""/>
+                                </label>
+
+                                <label class="label">Meta Image</label>
+                                <label for="file" class="input input-file">
+                                    <div class="button"><input type="file" id="meta_image" name="meta_image" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
+                                </label>
+
 
                                 <label class="label">Intro</label>
                                 <label class="input">
