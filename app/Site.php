@@ -21,7 +21,7 @@ class Site extends Model
      * @var array
      */
     protected $fillable = [
-        'url', 'meta_description', 'meta_title', 'meta_image'
+        'url', 'intro', 'meta_description', 'meta_title', 'meta_image', 'background'
     ];
 
 

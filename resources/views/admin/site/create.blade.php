@@ -37,6 +37,16 @@
                                     <div class="button"><input type="file" id="meta_image" name="meta_image" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
                                 </label>
 
+                                <label class="label">Background</label>
+                                <label for="file" class="input input-file">
+                                    <div class="button"><input type="file" id="background" name="background" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
+                                </label>
+
+                                <label class="label">Intro</label>
+                                <label class="input">
+                                    <textarea rows="10" cols="105" id="intro" name="intro"></textarea>
+                                </label>
+
                             </section>
                         </fieldset>
 
@@ -47,6 +57,18 @@
                     </form>
             </div>
 
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+$(function() {
+    $('#intro').summernote();
+});
+
+</script>
 
 @endsection
 

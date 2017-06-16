@@ -16,7 +16,6 @@
         <link rel="stylesheet" href="/css/animate.css">
         <link rel="stylesheet" href="/css/line-icons.css">
         <link rel="stylesheet" href="/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/page_pricing.css">
         <link rel="stylesheet" href="/css/dark.css">
         <link rel="stylesheet" href="/css/custom.css">
 

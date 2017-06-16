@@ -11,3 +11,11 @@ input {
 table.dataTable {
     border-collapse: collapse;
 }
+
+.nav-main {
+    padding-top: 15px;
+}
+
+.breadcrumbs.breadcrumbs-dark, .breadcrumbs.breadcrumbs-light {
+    padding: 0;
+}

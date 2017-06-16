@@ -77,15 +77,22 @@ class AdminSiteController extends Controller {
 
     private function saveSite($site, $request) {
         // image stuff
-        $image = $this->workImage('site', 'meta_image', $request, $site->meta_image);
-        if($image !== null) {
-            $site->meta_image = $image;
-        }
+        $site = $this->workImageByField($site, $request, 'meta_image');
+        $site = $this->workImageByField($site, $request, 'background');
 
         $site->url = $request->url;
+        $site->intro = $request->intro;
         $site->meta_title = $request->meta_title;
         $site->meta_description = $request->meta_description;
         $site->save();
+    }
+
+    private function workImageByField($site, $request, $field) {
+        $image = $this->workImage('site', $field, $request, $site->$field);
+        if($image !== null) {
+            $site->$field = $image;
+        }
+        return $site;
     }
 
 }

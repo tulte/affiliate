@@ -21,9 +21,11 @@ USE `affiliate` ;
 CREATE TABLE IF NOT EXISTS `affiliate`.`site` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(45) NULL,
+  `intro` VARCHAR(1024) NULL,
   `meta_title` VARCHAR(128) NULL,
   `meta_description` VARCHAR(128) NULL,
   `meta_image` VARCHAR(128) NULL,
+  `background` VARCHAR(128) NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`),

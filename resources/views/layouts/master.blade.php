@@ -30,7 +30,8 @@
         <link rel="stylesheet" href="/css/animate.css">
         <link rel="stylesheet" href="/css/line-icons.css">
         <link rel="stylesheet" href="/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/page_pricing.css">
+        <link rel="stylesheet" href="/css/site.css">
+        <link rel="stylesheet" href="/css/topic.css">
         <link rel="stylesheet" href="/css/dark.css">
         <link rel="stylesheet" href="/css/custom.css">
 
@@ -42,8 +43,8 @@
         <div class="header">
             <div class="container">
                 <!-- Logo -->
-                <a class="logo" href="index.html">
-
+                <a class="logo" href="/" >
+                <img src="/{{$site->meta_image}}" alt="Logo" width="100" height="30">
                 </a>
                 <!-- End Logo -->
 
@@ -52,13 +53,10 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="fa fa-bars"></span>
                 </button>
-                <!-- End Toggle -->
-            </div><!--/end container-->
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
                 <div class="container">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav nav-main">
                         @foreach($site->topics as $topic)
                             <li>
                                 <a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a>
@@ -68,6 +66,11 @@
                     </ul>
                 </div><!--/end container-->
             </div><!--/navbar-collapse-->
+
+                <!-- End Toggle -->
+            </div><!--/end container-->
+
+
         </div>
 
         @yield('content')

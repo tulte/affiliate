@@ -73,6 +73,12 @@ return [
             'url'    => "images/topic",
         ],
 
+        'site' => [
+            'driver' => 'local',
+            'root'   => public_path("images/site"),
+            'url'    => "images/site",
+        ],
+
     ],
 
 ];
