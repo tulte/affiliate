@@ -14,6 +14,22 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `affiliate` DEFAULT CHARACTER SET utf8 ;
 USE `affiliate` ;
 
+
+-- -----------------------------------------------------
+-- Table `affiliate`.`site`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `affiliate`.`site` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `url` VARCHAR(45) NULL,
+  `meta_title` VARCHAR(128) NULL,
+  `meta_description` VARCHAR(128) NULL,
+  `meta_image` VARCHAR(128) NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `unique` (`url` ASC))
+ENGINE = InnoDB
+
 -- -----------------------------------------------------
 -- Table `affiliate`.`topic`
 -- -----------------------------------------------------
@@ -21,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`topic` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `intro` VARCHAR(1024) NULL,
+  `site_id` INT NULL,
   `meta_title` VARCHAR(128) NULL,
   `meta_description` VARCHAR(128) NULL,
   `meta_image` VARCHAR(128) NULL,

@@ -22,6 +22,11 @@
                                     <input type="text" name="name" value=""/>
                                 </label>
 
+                                <label class="label">Site</label>
+                                <label class="input">
+                                    {!! Form::select('site', $sites, null, ['class' => 'form-control']) !!}
+                                </label>
+
                                 <label class="label">Meta Title</label>
                                 <label class="input">
                                     <input type="text" name="meta_title" value=""/>

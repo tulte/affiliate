@@ -21,7 +21,7 @@ class Topic extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'intro', 'meta_description', 'meta_title', 'meta_image'
+        'name', 'intro', 'site_id', 'meta_description', 'meta_title', 'meta_image'
     ];
 
 

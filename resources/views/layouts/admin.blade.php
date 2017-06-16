@@ -46,6 +46,7 @@
                         <li class="list-group-item list-toggle collapse">
                             <a data-parent="#sidebar-nav">Affiliate</a>
                             <ul id="collapse-typography" class="collapse in">
+                                <li><a href="{{route('admin.site.index')}}">Site</a></li>
                                 <li><a href="{{route('admin.topic.index')}}">Topics</a></li>
                                 <li><a href="{{route('admin.product.index')}}">Products</a></li>
                                 <li><a href="{{route('admin.article.index')}}">Articles</a></li>

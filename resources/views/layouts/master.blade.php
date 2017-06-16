@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
                 <div class="container">
                     <ul class="nav navbar-nav">
-                        @foreach($topics as $topic)
+                        @foreach($site->topics as $topic)
                             <li>
                                 <a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a>
                             </li>

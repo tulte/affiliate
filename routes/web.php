@@ -28,6 +28,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('admin/user/save',['as' => 'admin.user.save', 'uses'=>'AdminUserController@save']);
     Route::post('user/update/{id}',['as' => 'admin.user.update', 'uses'=>'AdminUserController@update']);
 
+    Route::get('admin/site',['as' => 'admin.site.index', 'uses'=>'AdminSiteController@index']);
+    Route::get('admin/site/edit/{id}',['as' => 'admin.site.edit', 'uses'=>'AdminSiteController@edit']);
+    Route::get('admin/site/destroy/{id}',['as' => 'admin.site.destroy', 'uses'=>'AdminSiteController@destroy']);
+    Route::get('admin/site/create',['as' => 'admin.site.create', 'uses'=>'AdminSiteController@create']);
+    Route::post('admin/site/save',['as' => 'admin.site.save', 'uses'=>'AdminSiteController@save']);
+    Route::post('admin/site/update/{id}',['as' => 'admin.site.update', 'uses'=>'AdminSiteController@update']);
+
     Route::get('admin/topic',['as' => 'admin.topic.index', 'uses'=>'AdminTopicController@index']);
     Route::get('admin/topic/edit/{id}',['as' => 'admin.topic.edit', 'uses'=>'AdminTopicController@edit']);
     Route::get('admin/topic/destroy/{id}',['as' => 'admin.topic.destroy', 'uses'=>'AdminTopicController@destroy']);
@@ -73,19 +80,13 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 
+Route::group(['middleware'=>'affiliate'],function(){
+    Route::get('/datenschutz', ['as' => 'affiliate.datenschutz', 'uses'=>'AffiliateController@datenschutz']);
+    Route::get('/impressum', ['as' => 'affiliate.impressum', 'uses'=>'AffiliateController@impressum']);
 
-Route::get('/datenschutz', function () {
-    return view('datenschutz');
+    Route::get('/{topic}/vergleich', ['as' => 'affiliate.topic.compare', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
+    Route::get('/{topic}/artikel', ['as' => 'affiliate.topic.article', 'uses' => 'AffiliateController@article'])->where('topic','.+');
+    Route::get('/{topic}', ['as' => 'affiliate.topic', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
+
+    Route::get('/', ['as' => 'affiliate.index', 'uses' => 'AffiliateController@index']);
 });
-
-
-Route::get('/impressum', function () {
-    return view('impressum');
-});
-
-
-Route::get('/{topic}/vergleich', ['as' => 'affiliate.topic.compare', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
-Route::get('/{topic}/artikel', ['as' => 'affiliate.topic.article', 'uses' => 'AffiliateController@article'])->where('topic','.+');
-Route::get('/{topic}', ['as' => 'affiliate.topic', 'uses' => 'AffiliateController@topic'])->where('topic','.+');
-
-Route::get('/', ['as' => 'affiliate.index', 'uses' => 'AffiliateController@index']);

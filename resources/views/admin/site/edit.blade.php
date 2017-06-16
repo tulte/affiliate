@@ -12,29 +12,24 @@
 @endif
 
             <div class="panel panel-grey">
-                    <form action="{{route('admin.topic.update',[$topic->id])}}" method="POST" autocomplete="off" class="sky-form" enctype="multipart/form-data">
+                    <form action="{{route('admin.site.update',[$site->id])}}" method="POST" autocomplete="off" class="sky-form" enctype="multipart/form-data">
                     {!! csrf_field() !!}
 
                         <fieldset>
                             <section>
-                                <label class="label">Name</label>
+                                <label class="label">URL</label>
                                 <label class="input">
-                                    <input type="text" name="name" value="{{$topic->name}}"/>
-                                </label>
-
-                                <label class="label">Site</label>
-                                <label class="input">
-                                    {!! Form::select('site', $sites, $topic->site_id, ['class' => 'form-control']) !!}
+                                    <input type="text" name="url" value="{{$site->url}}"/>
                                 </label>
 
                                 <label class="label">Meta Title</label>
                                 <label class="input">
-                                    <input type="text" name="meta_title" value="{{$topic->meta_title}}"/>
+                                    <input type="text" name="meta_title" value="{{$site->meta_title}}"/>
                                 </label>
 
                                 <label class="label">Meta Description</label>
                                 <label class="input">
-                                    <input type="text" name="meta_description" value="{{$topic->meta_description}}"/>
+                                    <input type="text" name="meta_description" value="{{$site->meta_description}}"/>
                                 </label>
 
                                 <label class="label">Meta Image</label>
@@ -42,10 +37,6 @@
                                     <div class="button"><input type="file" id="meta_image" name="meta_image" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
                                 </label>
 
-                                <label class="label">Intro</label>
-                                <label class="input">
-                                    <textarea rows="10" cols="105" id="intro" name="intro">{{$topic->intro}}</textarea>
-                                </label>
                             </section>
                         </fieldset>
 
@@ -57,18 +48,6 @@
                     </form>
             </div>
 
-
-@endsection
-
-@section('scripts')
-
-<script type="text/javascript">
-
-$(function() {
-    $('#intro').summernote();
-});
-
-</script>
 
 @endsection
 

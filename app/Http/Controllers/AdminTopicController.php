@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use App\Topic;
-
+use App\Site;
 
 class AdminTopicController extends Controller {
 
@@ -18,7 +18,7 @@ class AdminTopicController extends Controller {
     public function edit($id) {
         $topic = Topic::find($id);
         if($topic) {
-            return view('admin.topic.edit', ['topic' => $topic]);
+            return view('admin.topic.edit', ['topic' => $topic, 'sites' => Site::getListIdUrl()]);
         }
         return redirect()->back();
     }
@@ -37,7 +37,7 @@ class AdminTopicController extends Controller {
     }
 
     public function create() {
-        return view('admin.topic.create');
+        return view('admin.topic.create', ['sites' => Site::getListIdUrl()]);
     }
 
 
@@ -89,6 +89,7 @@ class AdminTopicController extends Controller {
 
         $topic->name = $request->name;
         $topic->intro = $request->intro;
+        $topic->site_id = $request->site;
         $topic->meta_title = $request->meta_title;
         $topic->meta_description = $request->meta_description;
         $topic->save();

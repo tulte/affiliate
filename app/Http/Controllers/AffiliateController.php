@@ -18,7 +18,7 @@ class AffiliateController extends Controller {
         if($entry === null) {
             abort(404);
         }
-        return view('affiliate.topic', ['topic' => $entry, 'topics' => Topic::all()]);
+        return view('affiliate.topic', ['topic' => $entry]);
     }
 
     public function article($topic) {
@@ -27,18 +27,25 @@ class AffiliateController extends Controller {
         if($entry === null) {
             abort(404);
         }
-        return view('affiliate.article', ['topic' => $entry, 'topics' => Topic::all()]);
+        return view('affiliate.article', ['topic' => $entry]);
+    }
+
+    public function impressum() {
+        return view('affiliate.impressum');
+    }
+
+    public function datenschutz() {
+        return view('affiliate.datenschutz');
     }
 
     private function getTopic($topic) {
         $entry = Cache::get($topic);
-        $entry = Topic::findByName($topic);
         if($entry === null) {
             $entry = Topic::findByName($topic);
             if($entry !== null) {
                 $entry->load('products.groups');
                 $entry->load('infos');
-                Cache::put($topic, $entry, 30);
+                Cache::put($topic, $entry, 1);
             }
         }
         return $entry;
