@@ -19,7 +19,12 @@
                             <section>
                                 <label class="label">Group</label>
                                 <label class="input">
-                                    <input type="text" name="group"/>
+                                    <input type="text" name="name"/>
+                                </label>
+
+                                <label class="label">Icon</label>
+                                <label class="input">
+                                    <input type="text" name="icon"/>
                                 </label>
 
                                 @foreach($products as $product)

@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`site` (
   `meta_description` VARCHAR(128) NULL,
   `meta_image` VARCHAR(128) NULL,
   `background` VARCHAR(128) NULL,
+  `quotation_text` VARCHAR(1024) NULL,
+  `quotation_author` VARCHAR(128) NULL,
   `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`),
@@ -68,6 +70,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `affiliate`.`group` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
+  `icon` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

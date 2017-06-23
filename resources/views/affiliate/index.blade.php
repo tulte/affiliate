@@ -18,86 +18,78 @@
 
         <!--=== Content Part ===-->
         <div class="container content">
-            <!-- Begin Service Block -->
-            <div class="row margin-bottom-40">
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-block service-block-sea service-or">
-                        <div class="service-bg"></div>
-                        <i class="icon-custom icon-color-light rounded-x fa fa-lightbulb-o"></i>
-                        <h2 class="heading-md">Default Box</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
+            <div class="row margin-bottom-40 centered">
+                @foreach($site->topics as $topic)
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-block service-block-blue service-or">
+                            <div class="service-bg"></div>
+                            <h2 class="heading-md"><a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a></h2>
+                            <p>{!! $topic->intro !!}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="service-block service-block-red service-or">
-                        <div class="service-bg"></div>
-                        <i class="icon-custom icon-color-light rounded-x icon-line icon-fire"></i>
-                        <h2 class="heading-md">Red Box</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="service-block service-block-blue service-or">
-                        <div class="service-bg"></div>
-                        <i class="icon-custom icon-color-light rounded-x icon-line icon-rocket"></i>
-                        <h2 class="heading-md">Dark Box</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
-                    </div>
+                @endforeach
+            </div>
+
+            <div class="title-box-v2">
+                <h2>Produkte</h2>
+                <p>Neue Produkte im Vergleich</p>
+            </div>
+            <div class="container content-md">
+                <ul class="row list-row margin-bottom-30">
+                    @foreach($products as $product)
+                        <li class="col-md-4 md-margin-bottom-30">
+                            <div class="content-boxes-v2 text-center block-grid-v1 rounded">
+                                <h3 class="heading-md"><strong><a href="{{route('affiliate.topic', [$product->topic_id])}}" >{{$product->name}}</a></strong></h3>
+                                <figure>
+                                    <img src="/{{$product->image}}" alt="">
+                                </figure>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="parallax-quote parallaxBg" style="background-position: 50% 20px;">
+            <div class="container">
+                <div class="parallax-quote-in">
+                    <p>{{$site->quotation_text}}</p>
+                    <small>- {{$site->quotation_author}} -</small>
                 </div>
             </div>
-            <!-- End Begin Service Block -->
+        </div>
 
-            <!-- Job Content -->
-            <div class="headline"><h2>Letzte Neuigkeiten</h2></div>
-            <div class="row job-content margin-bottom-40">
-                <div class="col-md-3 col-sm-3 md-margin-bottom-40">
-                    <h3 class="heading-md"><strong>Accounting &amp; Finance</strong></h3>
-                    <ul class="list-unstyled categories">
-                        <li><a href="#">Accounting</a> <small class="hex">(342 jobs)</small></li>
-                        <li><a href="#">Admin &amp; Clerical</a> <small class="hex">(143 jobs)</small></li>
-                        <li><a href="#">Banking &amp; Finance</a> <small class="hex">(66 jobs)</small></li>
-                        <li><a href="#">Contract &amp; Freelance</a> <small class="hex">(12 jobs)</small></li>
-                        <li><a href="#">Business Development</a> <small class="hex">(212 jobs)</small></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-3 md-margin-bottom-40">
-                    <h3 class="heading-md"><strong>Medicla &amp; Health</strong></h3>
-                    <ul class="list-unstyled categories">
-                        <li><a href="#">Nurse</a> <small class="hex">(546 jobs)</small></li>
-                        <li><a href="#">Health Care</a> <small class="hex">(82 jobs)</small></li>
-                        <li><a href="#">General Labor</a> <small class="hex">(11 jobs)</small></li>
-                        <li><a href="#">Pharmaceutical</a> <small class="hex">(109 jobs)</small></li>
-                        <li><a href="#">Human Resources</a> <small class="hex">(401 jobs)</small></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-3 md-margin-bottom-40">
-                    <h3 class="heading-md"><strong>Web Development</strong></h3>
-                    <ul class="list-unstyled categories">
-                        <li><a href="#">Ecommerce</a> <small class="hex">(958 jobs)</small></li>
-                        <li><a href="#">Web Design</a> <small class="hex">(576 jobs)</small></li>
-                        <li><a href="#">Web Programming</a> <small class="hex">(543 jobs)</small></li>
-                        <li><a href="#">Other - Web Development</a> <small class="hex">(67 jobs)</small></li>
-                        <li><a href="#">Website Project Management</a> <small class="hex">(45 jobs)</small></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <h3 class="heading-md"><strong>Sales &amp; Marketing</strong></h3>
-                    <ul class="list-unstyled categories">
-                        <li><a href="#">Advertising</a> <small class="hex">(123 jobs)</small></li>
-                        <li><a href="#">Email Marketing</a> <small class="hex">(544 jobs)</small></li>
-                        <li><a href="#">Telemarketing &amp; Telesales</a> <small class="hex">(564 jobs)</small></li>
-                        <li><a href="#">Market Research &amp; Surveys</a> <small class="hex">(345 jobs)</small></li>
-                        <li><a href="#">SEM - Search Engine Marketing</a> <small class="hex">(32 jobs)</small></li>
+            <div class="bg-grey">
+                <div class="container content-md">
+                    <ul class="row list-row margin-bottom-30">
+                        @foreach($articles as $article)
+                            <li class="col-md-4 md-margin-bottom-30">
+                                <div class="content-boxes-v2 text-center block-grid-v1 rounded">
+                                    <i class="icon-custom rounded-x icon-bg-yellow fa fa-diamond"></i>
+                                    <div class="content-boxes-in-v3">
+
+                                        <h3><a href="{{route('affiliate.topic', [$article->topic_id])}}" >{{$article->header}}</a></h3>
+                                        <ul class="list-inline margin-bottom-5">
+                                            <li><i class="fa fa-clock-o"></i> {{$article->created_at}}</li>
+                                        </ul>
+                                        <p>{!! $article->text !!}</p>
+
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
 
 
-            <!--=== Job Partners ===-->
+
             <div class="container content job-partners">
                 <div class="title-box-v2">
                     <h2>Hersteller</h2>
-                    <p>Eine Auswahl von Herstellern aus den Vergleichen</p>
+                    <p>Unsere Herstellern aus den Vergleichen</p>
                 </div>
 
                 <ul class="list-inline our-clients" id="effect-2">
@@ -111,7 +103,7 @@
                     </li>
                 </ul>
             </div><!--/container-->
-        </div>
+
 
 
 

@@ -19,7 +19,12 @@
                             <section>
                                 <label class="label">Group</label>
                                 <label class="input">
-                                    <input type="text" name="group" value="{{$group['name']}}"/>
+                                    <input type="text" name="name" value="{{$group['name']}}"/>
+                                </label>
+
+                                <label class="label">Icon</label>
+                                <label class="input">
+                                    <input type="text" name="icon" value="{{$group['icon']}}"/>
                                 </label>
 
                                 @foreach($group['features'] as $feature)

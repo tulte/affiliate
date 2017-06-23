@@ -36,7 +36,7 @@
                         <ul  class="pricing-content list-unstyled">
                             @foreach($topic->products[0]->groups as $group)
                                 <li class="bg-color">
-                                    <i class="fa fa-users"></i>{{$group->name}}
+                                    <i class="fa {{$group->icon}}"></i>{{$group->name}}
                                 </li>
                             @endforeach
                         </ul>

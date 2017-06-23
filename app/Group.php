@@ -27,7 +27,7 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'icon',
     ];
 
     public function products() {

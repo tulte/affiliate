@@ -42,6 +42,16 @@
                                     <div class="button"><input type="file" id="background" name="background" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" readonly>
                                 </label>
 
+                                <label class="label">Quotation Text</label>
+                                <label class="input">
+                                    <input type="text" name="quotation_text" value="{{$site->quotation_text}}"/>
+                                </label>
+
+                                <label class="label">Quotation Author</label>
+                                <label class="input">
+                                    <input type="text" name="quotation_author" value="{{$site->quotation_author}}"/>
+                                </label>
+
                                 <label class="label">Intro</label>
                                 <label class="input">
                                     <textarea rows="10" cols="105" id="intro" name="intro">{{$site->intro}}</textarea>

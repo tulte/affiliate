@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
@@ -30,6 +30,14 @@ class Product extends Model
 
     public function groups() {
         return $this->belongsToMany('App\Group','feature', 'product_id', 'group_id')->withPivot('value');
+    }
+
+    public static function findLastProductsBySiteId($site_id, $count) {
+        return DB::table('product')
+                ->join('topic', 'product.topic_id', '=', 'topic.id')
+                ->where('topic.site_id', $site_id)
+                ->orderBy('product.created_at', 'desc')
+                ->limit($count)->get();
     }
 
 }

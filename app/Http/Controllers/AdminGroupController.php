@@ -53,7 +53,8 @@ class AdminGroupController extends Controller {
 
         // save the group
         $group = Group::find($id);
-        $group->name = $inputs['group'];
+        $group->name = $inputs['name'];
+        $group->icon = $inputs['icon'];
         $group->save();
 
         // save the features
@@ -95,7 +96,8 @@ class AdminGroupController extends Controller {
 
         // save the group
         $group = new Group();
-        $group->name = $inputs['group'];
+        $group->name = $inputs['name'];
+        $group->icon = $inputs['icon'];
         $group->save();
 
         // save the features
@@ -153,6 +155,7 @@ class AdminGroupController extends Controller {
         foreach ($groups as $group) {
             $row = [];
             $row['name'] = $group['name'];
+            $row['icon'] = $group['icon'];
             $row['id'] = $group['id'];
             $row['features'] = [];
 

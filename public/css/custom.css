@@ -19,3 +19,19 @@ table.dataTable {
 .breadcrumbs.breadcrumbs-dark, .breadcrumbs.breadcrumbs-light {
     padding: 0;
 }
+
+.centered {
+   text-align: center;
+   font-size: 0;
+}
+.centered > div {
+   float: none;
+   display: inline-block;
+   text-align: left;
+   font-size: 13px;
+}
+
+
+.service-block a {
+    color: #ffffff;
+}

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
@@ -26,6 +26,14 @@ class Article extends Model
 
     public function topic() {
         return $this->belongsTo('App\Topic','topic_id');
+    }
+
+    public static function findLastArticlesBySiteId($site_id, $count) {
+        return DB::table('article')
+                ->join('topic', 'article.topic_id', '=', 'topic.id')
+                ->where('topic.site_id', $site_id)
+                ->orderBy('article.created_at', 'desc')
+                ->limit($count)->get();
     }
 
 
