@@ -52,3 +52,8 @@ table.dataTable {
 .compare-category {
   font-weight:bold;
 }
+
+.btn-compare-header {
+  white-space: normal;
+  height: 77px;
+}

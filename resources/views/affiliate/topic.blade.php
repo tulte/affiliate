@@ -10,7 +10,7 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs breadcrumbs-light">
             <div class="container">
-                <h1 class="pull-left">{{$topic->name}}</h1>
+                <h3 class="pull-left">{{$topic->name}}</h3>
                 <ul class="pull-right breadcrumb">
                     <li><a href="{{route('affiliate.topic.compare', [$topic->name])}}">Vergleich</a></li>
                     <li><a href="{{route('affiliate.topic.article', [$topic->name])}}">Neuigkeiten</a></li>
@@ -54,9 +54,7 @@
                 <div class="col-md-2 col-sm-6 block">
                     <div class="pricing">
                         <div class="pricing-head">
-                            <h3>
-                                {{$product->name}}
-                            </h3>
+                            <a href="{{$product->link}}" class="btn-u btn-block btn-compare-header" target="_blank">{{$product->name}}</a>
                             <h4><img src="/{{$product->image}}" class="compare-image" /></h4>
                         </div>
                         <ul class="pricing-content list-unstyled ">
