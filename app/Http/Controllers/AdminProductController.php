@@ -30,7 +30,14 @@ class AdminProductController extends Controller {
     protected function validator(array $data, $id = null)
     {
         $validator = [
-            'name' => 'required|unique:product' . ($id > 0 ? ',name,' . $id : '')
+            'name' => 'required|unique:product' . ($id > 0 ? ',name,' . $id : ''),
+            'identifier' => 'required',
+            'provider' => 'required',
+            'link' => 'required',
+            'price' => 'required|integer',
+            'review_count' => 'required|integer',
+            'review_value' => 'required|integer|max:50'
+
         ];
 
         return Validator::make($data, $validator);
@@ -89,7 +96,11 @@ class AdminProductController extends Controller {
 
         // db stuff
         $product->name = $request->name;
+        $product->provider = $request->provider;
         $product->link = $request->link;
+        $product->price = $request->price;
+        $product->review_count = $request->review_count;
+        $product->review_value = $request->review_value;
         $product->identifier = $request->identifier;
         $product->topic_id = $request->topic;
         $product->save();

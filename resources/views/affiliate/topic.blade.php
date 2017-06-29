@@ -30,13 +30,21 @@
             <div class="row no-space-pricing pricing-mega-v1">
                 <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
                     <div class="pricing hidden-area">
-                        <div class="pricing-head ">
-                            <h4 class="price"></h4>
+                        <div class="pricing-head compare-image-container">
                         </div>
                         <ul  class="pricing-content list-unstyled">
+                            <li class="bg-color"><div class="compare-category">Hersteller</div></li>
+                            <li class="bg-color" style="height:77px;"><div class="compare-category">Bewertung</div></li>
+
                             @foreach($topic->products[0]->groups as $group)
-                                <li class="bg-color">
-                                    <i class="fa {{$group->icon}}"></i>{{$group->name}}
+                                @if($loop->iteration % 2)
+                                    <li>
+                                @else
+                                    <li class="bg-color">
+                                @endif
+                                    <div class="compare-category">
+                                        <i class="fa {{$group->icon}}"></i>{{$group->name}}
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
@@ -49,13 +57,34 @@
                             <h3>
                                 {{$product->name}}
                             </h3>
-                            <h4 class="price">
-                                <img src="/{{$product->image}}" height="45" width="45"/>
-                            </h4>
+                            <h4><img src="/{{$product->image}}" class="compare-image" /></h4>
                         </div>
                         <ul class="pricing-content list-unstyled ">
+                            <li class="bg-color">
+                                {{$product->provider}}
+                            </li>
+                            <li class="bg-color">
+                                <ul class="list-unstyled list-inline rating compare-star" data-toggle="tooltip" title="{{$product->review_value / 10}} von 5">
+                                    @for ($i = 10; $i <= 50; $i += 10)
+                                         @if ($product->review_value >= $i)
+                                            <li class="compare-star"><i class="fa fa-star fa-2x"></i></li>
+                                         @elseif ($product->review_value >= ($i-10))
+                                            <li class="compare-star"><i class="fa fa-star-half-empty fa-2x"></i></li>
+                                         @else
+                                            <li class="compare-star"><i class="fa fa-star-o fa-2x"></i></li>
+                                         @endif
+                                    @endfor
+                                    <a href="{{$product->link}}" target="_blank"><p>{{$product->review_count}} Bewertungen</p></a>
+                                </ul>
+                                <span class="hidden-md hidden-lg">{{$group->name}}</span>
+                            </li>
                             @foreach($product->groups as $group)
-                                <li class="bg-color">
+                                @if($loop->iteration % 2)
+                                    <li>
+                                @else
+                                    <li class="bg-color">
+                                @endif
+
                                     {{$group->pivot->value}}
                                     <span class="hidden-md hidden-lg">{{$group->name}}</span>
 
@@ -63,17 +92,10 @@
                             @endforeach
                         </ul>
                         <div class="btn-group btn-group-justified">
-                            <button type="button" class="btn-u btn-block dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-shopping-cart"></i>
-                                Sign Up
-                                <i class="fa fa-angle-down"></i>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">14 day Free Trial </a></li>
-                                <li><a href="#">$ 9.48 One Month</a></li>
-                                <li><a href="#">$ 50.00 Six Month</a></li>
-                                <li><a href="#">$ 99.99 One Year</a></li>
-                            </ul>
+                            <a href="{{$product->link}}" class="btn-u btn-block" target="_blank">
+                                <i class="fa fa-amazon"></i>
+                                Angebot für {{$product->price}}€
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -98,5 +120,17 @@
             </div>
         @endforeach
 
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+</script>
 
 @endsection

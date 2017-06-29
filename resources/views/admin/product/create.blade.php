@@ -17,9 +17,19 @@
 
                         <fieldset>
                             <section>
+                                <label class="label">Topic</label>
+                                <label class="input">
+                                    {!! Form::select('topic', $topics, null, ['class' => 'form-control']) !!}
+                                </label>
+
                                 <label class="label">Name</label>
                                 <label class="input">
                                     <input type="text" name="name"/>
+                                </label>
+
+                                <label class="label">Provider</label>
+                                <label class="input">
+                                    <input type="text" name="provider"/>
                                 </label>
 
                                 <label class="label">Link</label>
@@ -37,10 +47,23 @@
                                     <input type="text" name="identifier"/>
                                 </label>
 
-                                <label class="label">Topic</label>
+                                <label class="label">Price</label>
                                 <label class="input">
-                                    {!! Form::select('topic', $topics, null, ['class' => 'form-control']) !!}
+                                    <input type="text" name="price"/>
                                 </label>
+
+                                <label class="label">Review Count</label>
+                                <label class="input">
+                                    <input type="text" name="review_count"/>
+                                </label>
+
+                                <label class="label">Review Value</label>
+                                <label class="input">
+                                    <input type="text" name="review_value"/>
+                                </label>
+
+
+
                             </section>
                         </fieldset>
 

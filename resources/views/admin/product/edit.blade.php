@@ -17,9 +17,20 @@
 
                         <fieldset>
                             <section>
+                                <label class="label">Topic</label>
+                                <label class="input">
+                                    {!! Form::select('topic', $topics, $product->topic_id, ['class' => 'form-control']) !!}
+                                </label>
+
                                 <label class="label">Name</label>
                                 <label class="input">
                                     <input type="text" name="name" value="{{$product->name}}"/>
+                                </label>
+
+
+                                <label class="label">Provider</label>
+                                <label class="input">
+                                    <input type="text" name="provider" value="{{$product->provider}}"/>
                                 </label>
 
                                 <label class="label">Link</label>
@@ -37,10 +48,22 @@
                                     <input type="text" name="identifier" value="{{$product->identifier}}"/>
                                 </label>
 
-                                <label class="label">Topic</label>
+                                <label class="label">Price</label>
                                 <label class="input">
-                                    {!! Form::select('topic', $topics, $product->topic_id, ['class' => 'form-control']) !!}
+                                    <input type="text" name="price" value="{{$product->price}}"/>
                                 </label>
+
+                                <label class="label">Review Count</label>
+                                <label class="input">
+                                    <input type="text" name="review_count" value="{{$product->review_count}}"/>
+                                </label>
+
+                                <label class="label">Review Value</label>
+                                <label class="input">
+                                    <input type="text" name="review_value" value="{{$product->review_value}}"/>
+                                </label>
+
+
                             </section>
                         </fieldset>
 

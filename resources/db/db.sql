@@ -95,9 +95,13 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `affiliate`.`product` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
+  `provider` VARCHAR(45) NULL,
   `link` VARCHAR(128) NULL,
   `identifier` VARCHAR(45) NULL,
   `image` VARCHAR(128) NULL,
+  `price` INT NULL,
+  `review_count` INT NULL,
+  `review_value` INT NULL,
   `topic_id` INT NULL,
   `updated_at` DATETIME NULL,
   `created_at` DATETIME NULL,
