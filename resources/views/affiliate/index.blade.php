@@ -67,12 +67,12 @@
                         @foreach($articles as $article)
                             <li class="col-md-4 md-margin-bottom-30">
                                 <div class="content-boxes-v2 text-center block-grid-v1 rounded">
-                                    <i class="icon-custom rounded-x icon-bg-yellow fa fa-diamond"></i>
+                                    <i class="icon-custom rounded-x icon-bg-blue fa fa-sun-o"></i>
                                     <div class="content-boxes-in-v3">
 
                                         <h3><a href="{{route('affiliate.topic', [$article->topic_id])}}" >{{$article->header}}</a></h3>
                                         <ul class="list-inline margin-bottom-5">
-                                            <li><i class="fa fa-clock-o"></i> {{$article->created_at}}</li>
+                                            <li><i class="fa fa-clock-o"></i> {{ date('d.m.Y', strtotime($article->created_at)) }}</li>
                                         </ul>
                                         <p>{!! $article->text !!}</p>
 
@@ -86,22 +86,21 @@
 
 
 
-            <div class="container content job-partners">
+            <div class="container content">
                 <div class="title-box-v2">
                     <h2>Hersteller</h2>
                     <p>Unsere Herstellern aus den Vergleichen</p>
                 </div>
 
-                <ul class="list-inline our-clients" id="effect-2">
-                    <li>
-                        <figure>
-                            <img src="assets/img/clients2/ea-canada.png" alt="">
-                            <div class="img-hover">
-                                <h4>Ea Canada</h4>
+                <div class="row margin-bottom-40 centered">
+                    @foreach($providers as $provider)
+                        <div class="col-md-2 col-sm-3">
+                            <div class="service-block service-block-blue service-or">
+                                <p>{{$provider->provider}}</p>
                             </div>
-                        </figure>
-                    </li>
-                </ul>
+                        </div>
+                    @endforeach
+                </div>
             </div><!--/container-->
 
 

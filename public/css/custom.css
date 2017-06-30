@@ -57,3 +57,16 @@ table.dataTable {
   white-space: normal;
   height: 77px;
 }
+
+.heading-md {
+  min-height:50px;
+}
+
+.content-md {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.logo {
+  padding-left: 20px;
+}

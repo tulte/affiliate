@@ -44,7 +44,7 @@
             <div class="container">
                 <!-- Logo -->
                 <a class="logo" href="/" >
-                <img src="/{{$site->meta_image}}" alt="Logo" width="100" height="30">
+                <img src="/{{$site->meta_image}}" alt="Logo" width="120" height="60">
                 </a>
                 <!-- End Logo -->
 

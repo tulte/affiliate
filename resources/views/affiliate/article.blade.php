@@ -10,7 +10,7 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs breadcrumbs-light">
             <div class="container">
-                <h1 class="pull-left">{{$topic->name}}</h1>
+                <h3 class="pull-left breadcrumb">{{$topic->name}}</h3>
                 <ul class="pull-right breadcrumb">
                     <li><a href="{{route('affiliate.topic.compare', [$topic->name])}}">Vergleich</a></li>
                     <li><a href="{{route('affiliate.topic.article', [$topic->name])}}">Neuigkeiten</a></li>

@@ -37,7 +37,16 @@ class Product extends Model
                 ->join('topic', 'product.topic_id', '=', 'topic.id')
                 ->where('topic.site_id', $site_id)
                 ->orderBy('product.created_at', 'desc')
-                ->limit($count)->get();
+                ->limit($count)->get(['product.id as id', 'product.name as name', 'product.topic_id as topic_id', 'product.image as image']);
+    }
+
+    public static function getDistinctProviders($site_id) {
+        return DB::table('product')
+                ->select('provider')
+                ->join('topic', 'product.topic_id', '=', 'topic.id')
+                ->where('topic.site_id', $site_id)
+                ->groupBy('provider')
+                ->get();
     }
 
 }

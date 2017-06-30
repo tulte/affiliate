@@ -14,8 +14,9 @@ class AffiliateController extends Controller {
         $site = view()->shared('site');
         $articles = Article::findLastArticlesBySiteId($site->id,4);
         $products = Product::findLastProductsBySiteId($site->id,4);
+        $providers = Product::getDistinctProviders($site->id);
 
-        return view('affiliate.index', ['articles' => $articles, 'products' => $products]);
+        return view('affiliate.index', ['articles' => $articles, 'products' => $products, 'providers' => $providers]);
     }
 
     public function topic($topic) {

@@ -10,7 +10,7 @@
         <!--=== Breadcrumbs ===-->
         <div class="breadcrumbs breadcrumbs-light">
             <div class="container">
-                <h3 class="pull-left">{{$topic->name}}</h3>
+                <h3 class="pull-left breadcrumb">{{$topic->name}}</h3>
                 <ul class="pull-right breadcrumb">
                     <li><a href="{{route('affiliate.topic.compare', [$topic->name])}}">Vergleich</a></li>
                     <li><a href="{{route('affiliate.topic.article', [$topic->name])}}">Neuigkeiten</a></li>
@@ -34,13 +34,13 @@
                         </div>
                         <ul  class="pricing-content list-unstyled">
                             <li class="bg-color"><div class="compare-category">Hersteller</div></li>
-                            <li class="bg-color" style="height:77px;"><div class="compare-category">Bewertung</div></li>
+                            <li style="height:77px;"><div class="compare-category">Bewertung</div></li>
 
                             @foreach($topic->products[0]->groups as $group)
                                 @if($loop->iteration % 2)
-                                    <li>
-                                @else
                                     <li class="bg-color">
+                                @else
+                                    <li>
                                 @endif
                                     <div class="compare-category">
                                         <i class="fa {{$group->icon}}"></i>{{$group->name}}
@@ -61,7 +61,7 @@
                             <li class="bg-color">
                                 {{$product->provider}}
                             </li>
-                            <li class="bg-color">
+                            <li>
                                 <ul class="list-unstyled list-inline rating compare-star" data-toggle="tooltip" title="{{$product->review_value / 10}} von 5">
                                     @for ($i = 10; $i <= 50; $i += 10)
                                          @if ($product->review_value >= $i)
@@ -78,9 +78,9 @@
                             </li>
                             @foreach($product->groups as $group)
                                 @if($loop->iteration % 2)
-                                    <li>
-                                @else
                                     <li class="bg-color">
+                                @else
+                                    <li>
                                 @endif
 
                                     @if($group->pivot->type == 'ICON')
