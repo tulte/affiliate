@@ -83,7 +83,11 @@
                                     <li class="bg-color">
                                 @endif
 
-                                    {{$group->pivot->value}}
+                                    @if($group->pivot->type == 'ICON')
+                                        <i class="fa {{$group->pivot->value}}"></i>
+                                    @else
+                                        {{$group->pivot->value}}
+                                    @endif
                                     <span class="hidden-md hidden-lg">{{$group->name}}</span>
 
                                 </li>

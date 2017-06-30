@@ -30,7 +30,8 @@
                                 @foreach($products as $product)
                                     <label class="label">{{$product['name']}}</label>
                                     <label class="input">
-                                        <input type="text" name="feature_{{$product['id']}}" />
+                                        {!! Form::select('feature_type_' . $product['id'] , $types, null, ['class' => 'form-control']) !!}
+                                        <input type="text" name="feature_name_{{$product['id']}}" />
                                     </label>
                                 @endforeach
 

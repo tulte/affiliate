@@ -29,7 +29,7 @@ class Product extends Model
     }
 
     public function groups() {
-        return $this->belongsToMany('App\Group','feature', 'product_id', 'group_id')->withPivot('value');
+        return $this->belongsToMany('App\Group','feature', 'product_id', 'group_id')->withPivot(['value', 'type']);
     }
 
     public static function findLastProductsBySiteId($site_id, $count) {

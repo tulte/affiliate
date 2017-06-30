@@ -27,7 +27,7 @@ class Feature extends Model
      * @var array
      */
     protected $fillable = [
-        'value', 'product_id', 'group_id'
+        'value', 'type', 'product_id', 'group_id'
     ];
 
     public static function  findByGroupIdAndProductId($groupid, $productid) {

@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `affiliate`.`feature` (
   `product_id` INT NULL,
   `group_id` INT NULL,
   `value` VARCHAR(128) NULL,
+  `type` VARCHAR(24) NULL
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

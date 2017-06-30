@@ -12,6 +12,8 @@ use App\Feature;
 
 class AdminGroupController extends Controller {
 
+    private $TYPES = ['ICON' => 'ICON', 'TEXT' => 'TEXT'];
+
     public function index($topicid) {
         $topic = Topic::find($topicid);
         $topic->load('products.groups');
@@ -38,7 +40,7 @@ class AdminGroupController extends Controller {
         $groupEntry = $this->filterGroupTable($groupTable, $id);
 
         if($groupEntry) {
-            return view('admin.group.edit', ['topicid' => $topicid, 'group' => $groupEntry]);
+            return view('admin.group.edit', ['topicid' => $topicid, 'group' => $groupEntry, 'types' => $this->TYPES]);
         }
         return redirect()->back();
     }
@@ -57,21 +59,15 @@ class AdminGroupController extends Controller {
         $group->icon = $inputs['icon'];
         $group->save();
 
-        // save the features
-        foreach($inputs as $input_key => $input_value) {
-            // starts with feature
-            if(substr($input_key, 0, strlen('feature_')) === 'feature_') {
-                $productid = intval(preg_replace('/[^0-9]+/', '', $input_key), 10);
-                $feature = Feature::findByGroupIdAndProductId($id, $productid);
-                if($feature === null) {
+        // save feature data
+        $featureDatas = $this->getFeaturesFromInput($inputs, $group->id);
+        foreach($featureDatas as $featureData) {
+            $feature = Feature::findByGroupIdAndProductId($id, $featureData['product_id']);
+            if($feature === null) {
                     $feature = new Feature();
-                }
-
-                $feature->value = $input_value;
-                $feature->group_id = $group->id;
-                $feature->product_id = $productid;
-                $feature->save();
             }
+
+            $this->saveFeature($feature, $featureData);
         }
 
         return redirect()->route('admin.group.index', [$topicid]);
@@ -86,7 +82,7 @@ class AdminGroupController extends Controller {
 
         $productColumns = $this->getProductColumns($products);
 
-        return view('admin.group.create', ['topicid' => $topicid, 'products' => $products]);
+        return view('admin.group.create', ['topicid' => $topicid, 'products' => $products, 'types' => $this->TYPES]);
 
     }
 
@@ -100,17 +96,11 @@ class AdminGroupController extends Controller {
         $group->icon = $inputs['icon'];
         $group->save();
 
-        // save the features
-        foreach($inputs as $input_key => $input_value) {
-            // starts with feature
-            if(substr($input_key, 0, strlen('feature_')) === 'feature_') {
-                $productid = intval(preg_replace('/[^0-9]+/', '', $input_key), 10);
-                $feature = new Feature();
-                $feature->group_id = $group->id;
-                $feature->product_id = $productid;
-                $feature->value = $input_value;
-                $feature->save();
-            }
+        // save feature data
+        $featureDatas = $this->getFeaturesFromInput($inputs, $group->id);
+        foreach($featureDatas as $featureData) {
+            $feature = new Feature();
+            $this->saveFeature($feature, $featureData);
         }
 
         return redirect()->route('admin.group.index', [$topicid]);
@@ -129,6 +119,37 @@ class AdminGroupController extends Controller {
         return redirect()->route('admin.group.index', [$topicid]);
     }
 
+    private function getFeaturesFromInput($inputs, $groupId) {
+        $ret =[];
+        foreach($inputs as $input_key => $input_value) {
+            // starts with feature
+            if(substr($input_key, 0, strlen('feature_name_')) === 'feature_name_') {
+                $productid = $this->getProductIdFromInputKey($input_key);
+                $featureType = $inputs['feature_type_' . strval($productid)];
+
+                $entry = [
+                    'group_id' => $groupId,
+                    'product_id' => $productid,
+                    'value' => $input_value,
+                    'type' => $featureType
+                ];
+                $ret[] = $entry;
+            }
+        }
+        return $ret;
+    }
+
+    private function saveFeature($feature, $data) {
+        $feature->group_id = $data['group_id'];
+        $feature->product_id = $data['product_id'];
+        $feature->value = $data['value'];
+        $feature->type = $data['type'];
+        $feature->save();
+    }
+
+    private function getProductIdFromInputKey($inputKey) {
+        return intval(preg_replace('/[^0-9]+/', '', $inputKey), 10);
+    }
 
     private function getProductColumns($products) {
         $ret = [];
@@ -162,7 +183,7 @@ class AdminGroupController extends Controller {
             foreach ($products as $product) {
                 $feature = $this->getFeatureForProductAndGroup($topic, $group['name'], $product['name']);
                 $productIdStr = $this->getProductIdStr($product['name']);
-                $row['features'][] = ['name' => $feature['value'], 'product' => $product['name'], 'productid' => $product['id']];
+                $row['features'][] = ['name' => $feature['value'], 'type' => $feature['type'], 'product' => $product['name'], 'productid' => $product['id']];
             }
             $ret[] = $row;
         }
