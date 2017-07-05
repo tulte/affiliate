@@ -19,7 +19,6 @@
                                         <th>Name</th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -27,9 +26,6 @@
                                         <tr>
                                             <td>{{$topic->id}}</td>
                                             <td>{{$topic->name}}</td>
-                                            <td style="text-align: right;">
-                                                <a href="{{route('admin.group.index', [$topic->id])}}" ><i class="fa fa-2x fa-table" style="color:black"></i></a>
-                                            </td>
                                             <td style="text-align: right;">
                                                 <a href="{{route('admin.topic.edit', [$topic->id])}}" ><i class="fa fa-2x fa-edit" style="color:black"></i></a>
                                             </td>

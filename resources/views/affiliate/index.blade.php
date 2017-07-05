@@ -37,13 +37,15 @@
             <div class="container content-md">
                 <ul class="row list-row margin-bottom-30">
                     @foreach($products as $product)
-                        <li class="col-md-4 md-margin-bottom-30">
-                            <div class="content-boxes-v2 text-center block-grid-v1 rounded">
-                                <h3 class="heading-md"><strong><a href="{{route('affiliate.topic', [$product->topic_id])}}" >{{$product->name}}</a></strong></h3>
-                                <figure>
-                                    <img src="/{{$product->image}}" alt="">
-                                </figure>
-                            </div>
+                        <li class="col-md-4">
+                            <a href="{{route('affiliate.topic', [$product->topic_id])}}" >
+                                <div class="content-boxes-v2 text-center block-grid-v1 rounded">
+                                    <h3 class="heading-md"><strong>{{$product->name}}</strong></h3>
+                                    <figure>
+                                        <img src="/{{$product->image}}" alt="" width="218" height="218">
+                                    </figure>
+                                </div>
+                            </a>
                         </li>
                     @endforeach
                 </ul>
@@ -63,7 +65,7 @@
 
             <div class="bg-grey">
                 <div class="container content-md">
-                    <ul class="row list-row margin-bottom-30">
+                    <ul class="row list-row">
                         @foreach($articles as $article)
                             <li class="col-md-4 md-margin-bottom-30">
                                 <div class="content-boxes-v2 text-center block-grid-v1 rounded">

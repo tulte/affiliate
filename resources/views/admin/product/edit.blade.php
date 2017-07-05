@@ -63,6 +63,57 @@
                                     <input type="text" name="review_value" value="{{$product->review_value}}"/>
                                 </label>
 
+                                <div class="form-section-line"></div>
+
+                                <label class="label">Groups</label>
+                                <div class="multifield-wrapper">
+                                    <div class="multifields">
+                                        @foreach($product->groups as $product_group)
+                                            <div class="multifield form-group">
+                                                <div class="inline-block">
+                                                    {!! Form::select('group_id[]', $groups, $product_group->id, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="inline-block">
+                                                    {!! Form::select('group_type[]', $group_types, $product_group->pivot->type, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="inline-block">
+                                                    <input type="text" name="group_value[]" class="form-control" value="{{$product_group->pivot->value}}"/>
+                                                </div>
+                                                <div class="inline-block">
+                                                    <a href="#" class="multifield-remove"><i class="fa big-icon fa-remove"></i></a>
+                                                </div>
+                                                <div class="inline-block">
+                                                    <a href="#" class="multifield-add"><i class="fa big-icon fa-plus"></i></a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="form-section-line"></div>
+
+                                <label class="label">Attributes</label>
+                                <div class="multifield-wrapper">
+                                    <div class="multifields">
+                                        @foreach($product->attributes as $attribute)
+                                            <div class="multifield form-group">
+                                                <div class="inline-block">
+                                                    {!! Form::select('attribute_type[]', $group_types, $attribute->type, ['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="inline-block">
+                                                    <input type="text" name="attribute_value[]" class="form-control" value="{{$attribute->value}}"/>
+                                                </div>
+                                                <div class="inline-block">
+                                                    <a href="#" class="multifield-remove"><i class="fa big-icon fa-remove"></i></a>
+                                                </div>
+                                                <div class="inline-block">
+                                                    <a href="#" class="multifield-add"><i class="fa big-icon fa-plus"></i></a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
 
                             </section>
                         </fieldset>
@@ -75,6 +126,12 @@
                     </form>
             </div>
 
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript" src="/js/multifield.js"></script>
 
 @endsection
 

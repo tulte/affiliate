@@ -47,6 +47,16 @@
                                     </div>
                                 </li>
                             @endforeach
+
+                                @if($topic->products[0]->groups->count() % 2)
+                                    <li class="bg-color">
+                                @else
+                                    <li>
+                                @endif
+                                    <div class="compare-category">
+                                        Besonderheiten
+                                    </div>
+                                </li>
                         </ul>
                     </div>
                 </div>
@@ -76,22 +86,43 @@
                                 </ul>
                                 <span class="hidden-md hidden-lg">{{$group->name}}</span>
                             </li>
-                            @foreach($product->groups as $group)
+                            @foreach($topic->products[0]->groups as $group)
+
+                                @php($product_group = ViewHelper::first_eloquent($product->groups,'id', $group->id))
+
                                 @if($loop->iteration % 2)
                                     <li class="bg-color">
                                 @else
                                     <li>
                                 @endif
 
-                                    @if($group->pivot->type == 'ICON')
-                                        <i class="fa {{$group->pivot->value}}"></i>
+                                @if($product_group)
+                                    @if($product_group->pivot->type == 'ICON')
+                                        <i class="fa {{$product_group->pivot->value}}"></i>
                                     @else
-                                        {{$group->pivot->value}}
+                                        {{$product_group->pivot->value}}
                                     @endif
-                                    <span class="hidden-md hidden-lg">{{$group->name}}</span>
+                                    <span class="hidden-md hidden-lg">{{$product_group->name}}</span>
+                                @else
+                                    unbekannt
+                                @endif
 
                                 </li>
                             @endforeach
+
+
+                                @if($topic->products[0]->groups->count() % 2)
+                                    <li class="bg-color">
+                                @else
+                                    <li>
+                                @endif
+
+                                @foreach($product->attributes as $attribute)
+                                    <span>{{$attribute->value}}</span>
+                                @endforeach
+
+                                </li>
+
                         </ul>
                         <div class="btn-group btn-group-justified">
                             <a href="{{$product->link}}" class="btn-u btn-block" target="_blank">

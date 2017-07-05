@@ -12,28 +12,20 @@
 @endif
 
             <div class="panel panel-grey">
-                    <form action="{{route('admin.group.update',[$topicid, $group['id']])}}" method="POST" autocomplete="off" class="sky-form">
+                    <form action="{{route('admin.group.update',$group->id)}}" method="POST" autocomplete="off" class="sky-form">
                     {!! csrf_field() !!}
 
                         <fieldset>
                             <section>
                                 <label class="label">Group</label>
                                 <label class="input">
-                                    <input type="text" name="name" value="{{$group['name']}}"/>
+                                    <input type="text" name="name" value="{{$group->name}}"/>
                                 </label>
 
                                 <label class="label">Icon</label>
                                 <label class="input">
-                                    <input type="text" name="icon" value="{{$group['icon']}}"/>
+                                    <input type="text" name="icon" value="{{$group->icon}}"/>
                                 </label>
-
-                                @foreach($group['features'] as $feature)
-                                    <label class="label">{{$feature['product']}}</label>
-                                    <label class="input">
-                                        {!! Form::select('feature_type_' . $feature['productid'] , $types, $feature['type'], ['class' => 'form-control']) !!}
-                                        <input type="text" name="feature_name_{{$feature['productid']}}" value="{{$feature['name']}}"/>
-                                    </label>
-                                @endforeach
 
                             </section>
                         </fieldset>
@@ -48,3 +40,4 @@
 
 
 @endsection
+

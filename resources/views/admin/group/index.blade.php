@@ -9,16 +9,14 @@
 
                     <div class="panel panel-grey">
                         <div class="panel-heading">
-                            <a href="{{route('admin.group.create', [$topicid])}}" class="btn btn-default btn-sm"><i class="fa fa-plus" style="color:black"></i></a>
+                            <a href="{{route('admin.group.create')}}" class="btn btn-default btn-sm"><i class="fa fa-plus" style="color:black"></i></a>
                         </div>
                         <div class="panel-body">
-                            <table id="product-table" class="table table-bordered">
+                            <table id="group-table" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        @foreach($products as $product)
-                                            <th>{{$product['name']}}</th>
-                                        @endforeach
+                                        <th>#</th>
+                                        <th>Name</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -26,15 +24,13 @@
                                 <tbody>
                                     @foreach($groups as $group)
                                         <tr>
-                                            <td>{{$group['name']}}</td>
-                                            @foreach($group['features'] as $feature)
-                                                <td>{{$feature['name']}}</td>
-                                            @endforeach
+                                            <td>{{$group->id}}</td>
+                                            <td>{{$group->name}}</td>
                                             <td style="text-align: right;">
-                                                <a href="{{route('admin.group.edit', [$topicid, $group['id']])}}" ><i class="fa fa-2x fa-edit" style="color:black"></i></a>
+                                                <a href="{{route('admin.group.edit', [$group->id])}}" ><i class="fa fa-2x fa-edit" style="color:black"></i></a>
                                             </td>
                                             <td>
-                                                <a href="{{route('admin.group.destroy', [$topicid, $group['id']])}}" data-toggle="confirmation" data-placement="left" data-title="Delete Entry?"><i class="fa fa-2x fa-remove" style="color:black"></i></a>
+                                                <a href="{{route('admin.group.destroy', [$group->id])}}" data-toggle="confirmation" data-placement="left" data-title="Delete Entry?"><i class="fa fa-2x fa-remove" style="color:black"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -53,13 +49,14 @@
 <script type="text/javascript">
 
 $(function() {
-    $('#product-table').DataTable({
+    $('#group-table').DataTable({
         "bInfo": false,
         "bLengthChange": false,
         "ordering": false,
         "info":     false,
         "pagingType": "simple",
         "columnDefs": [
+            { "width": "10px", "targets": 0 },
             { "width": "10px", "targets": [-1, -2] }
         ]
     });

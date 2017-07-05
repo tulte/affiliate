@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Topic;
 use App\Product;
+use App\Group;
+use App\Feature;
+use App\Attribute;
 
 
 class AdminProductController extends Controller {
+
+    private $TYPES = ['ICON' => 'ICON', 'TEXT' => 'TEXT'];
 
     public function index() {
         $products = Product::all();
@@ -21,8 +26,10 @@ class AdminProductController extends Controller {
     public function edit($id) {
         $product = Product::find($id);
         $topics = Topic::getListIdName();
+        $groups = Group::getListIdName();
+
         if($product) {
-            return view('admin.product.edit', ['product' => $product, 'topics' => $topics]);
+            return view('admin.product.edit', ['product' => $product, 'topics' => $topics, 'groups' => $groups, 'group_types' => $this->TYPES]);
         }
         return redirect()->back();
     }
@@ -45,7 +52,9 @@ class AdminProductController extends Controller {
 
     public function create() {
         $topics = Topic::getListIdName();
-        return view('admin.product.create', ['topics' => $topics]);
+        $groups = Group::getListIdName();
+
+        return view('admin.product.create', ['topics' => $topics, 'groups' => $groups, 'group_types' => $this->TYPES]);
     }
 
 
@@ -104,7 +113,67 @@ class AdminProductController extends Controller {
         $product->identifier = $request->identifier;
         $product->topic_id = $request->topic;
         $product->save();
+
+        $groupData = $this->getGroupData($request);
+        $product->groups()->sync($groupData);
+
+        $attributeData = $this->getAttributeData($request);
+        $this->saveAttributeData($product->id, $attributeData);
+
     }
 
+    private function saveAttributeData($productId, $attributeData) {
+        $product = Product::find($productId);
+        $product->load('attributes');
+
+        // delete non used
+        if(count($attributeData) < $product->attributes()->count()) {
+            $diffCount = $product->attributes()->count() - count($attributeData);
+            for($i = 0; $i < $diffCount; $i++) {
+                var_dump($product->attribute[$i]);
+                $product->attributes[$i]->delete();
+            }
+        }
+
+        // add missing
+        if(count($attributeData) > $product->attributes()->count()) {
+            $diffCount = count($attributeData) - $product->attributes()->count();
+            for($i = 0; $i < $diffCount; $i++) {
+                $attribute = new Attribute();
+                $attribute->product_id = $product->id;
+                $attribute->save();
+            }
+        }
+
+        $product = Product::find($productId);
+        $product->load('attributes');
+        foreach($attributeData as $index => $attribute) {
+            $product->attributes[$index]->value = $attribute['value'];
+            $product->attributes[$index]->type = $attribute['type'];
+            $product->attributes[$index]->save();
+        }
+    }
+
+    private function getGroupData($request) {
+        $ret = [];
+        foreach($request->group_id as $index => $group_id) {
+            $ret[$group_id] = [
+                'value' => $request->group_value[$index],
+                'type' => $request->group_type[$index]
+            ];
+        }
+        return $ret;
+    }
+
+    private function getAttributeData($request) {
+        $ret = [];
+        foreach($request->attribute_value as $index => $attribute_value) {
+            $ret[] = [
+                'value' => $attribute_value,
+                'type' => $request->attribute_type[$index]
+            ];
+        }
+        return $ret;
+    }
 
 }

@@ -17,7 +17,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Product</th>
+                                        <th>Topic</th>
                                         <th></th>
                                         <th></th>
                                     </tr>

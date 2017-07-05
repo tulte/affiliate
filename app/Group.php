@@ -42,5 +42,14 @@ class Group extends Model
                 ->get();
     }
 
+   public static function getListIdName() {
+        $ret = [];
+        $entries = self::all();
+        foreach ($entries as $entry) {
+            $ret[$entry->id] = $entry->name;
+        }
+        return $ret;
+    }
+
 
 }

@@ -70,3 +70,13 @@ table.dataTable {
 .logo {
   padding-left: 20px;
 }
+
+.inline-block {
+  display:inline-block;
+}
+
+.form-section-line {
+  border-top: 1px solid rgba(0,0,0,.1);
+  margin-top:15px;
+  margin-bottom:10px;
+}

@@ -32,6 +32,11 @@ class Product extends Model
         return $this->belongsToMany('App\Group','feature', 'product_id', 'group_id')->withPivot(['value', 'type']);
     }
 
+    public function attributes()
+    {
+        return $this->hasMany('App\Attribute','product_id');
+    }
+
     public static function findLastProductsBySiteId($site_id, $count) {
         return DB::table('product')
                 ->join('topic', 'product.topic_id', '=', 'topic.id')

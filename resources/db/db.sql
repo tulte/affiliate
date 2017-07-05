@@ -66,13 +66,25 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `affiliate`.`attribute`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `affiliate`.`attribute` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NULL,
+  `value` VARCHAR(128) NULL,
+  `type` VARCHAR(24) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `affiliate`.`group`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `affiliate`.`group` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `icon` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `unique` (`name` ASC))
 ENGINE = InnoDB;
 
 

@@ -52,13 +52,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('admin/product/update/{id}',['as' => 'admin.product.update', 'uses'=>'AdminProductController@update']);
 
 
-    Route::get('admin/group/{topicid}',['as' => 'admin.group.index', 'uses'=>'AdminGroupController@index']);
-
-    Route::get('admin/group/edit/{topicid}/{id}',['as' => 'admin.group.edit', 'uses'=>'AdminGroupController@edit']);
-    Route::get('admin/group/destroy/{topicid}/{id}',['as' => 'admin.group.destroy', 'uses'=>'AdminGroupController@destroy']);
-    Route::get('admin/group/create/{topicid}',['as' => 'admin.group.create', 'uses'=>'AdminGroupController@create']);
-    Route::post('admin/group/save/{topicid}',['as' => 'admin.group.save', 'uses'=>'AdminGroupController@save']);
-    Route::post('admin/group/update/{topicid}/{id}',['as' => 'admin.group.update', 'uses'=>'AdminGroupController@update']);
+    Route::get('admin/group',['as' => 'admin.group.index', 'uses'=>'AdminGroupController@index']);
+    Route::get('admin/group/edit/{id}',['as' => 'admin.group.edit', 'uses'=>'AdminGroupController@edit']);
+    Route::get('admin/group/destroy/{id}',['as' => 'admin.group.destroy', 'uses'=>'AdminGroupController@destroy']);
+    Route::get('admin/group/create',['as' => 'admin.group.create', 'uses'=>'AdminGroupController@create']);
+    Route::post('admin/group/save',['as' => 'admin.group.save', 'uses'=>'AdminGroupController@save']);
+    Route::post('admin/group/update/{id}',['as' => 'admin.group.update', 'uses'=>'AdminGroupController@update']);
 
 
     Route::get('admin/article',['as' => 'admin.article.index', 'uses'=>'AdminArticleController@index']);

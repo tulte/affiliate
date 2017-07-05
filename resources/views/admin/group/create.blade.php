@@ -12,7 +12,7 @@
 @endif
 
             <div class="panel panel-grey">
-                    <form action="{{route('admin.group.save', [$topicid])}}" method="POST" autocomplete="off" class="sky-form">
+                    <form action="{{route('admin.group.save')}}" method="POST" autocomplete="off" class="sky-form">
                     {!! csrf_field() !!}
 
                         <fieldset>
@@ -26,14 +26,6 @@
                                 <label class="input">
                                     <input type="text" name="icon"/>
                                 </label>
-
-                                @foreach($products as $product)
-                                    <label class="label">{{$product['name']}}</label>
-                                    <label class="input">
-                                        {!! Form::select('feature_type_' . $product['id'] , $types, null, ['class' => 'form-control']) !!}
-                                        <input type="text" name="feature_name_{{$product['id']}}" />
-                                    </label>
-                                @endforeach
 
                             </section>
                         </fieldset>
