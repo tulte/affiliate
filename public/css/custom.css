@@ -53,6 +53,18 @@ table.dataTable {
   font-weight:bold;
 }
 
+.compare-category-rating {
+  height: 50px;
+}
+
+.compare-category-attribute {
+  height: 140px;
+}
+
+.compare-category-attribute-value {
+  padding:0px !important;
+}
+
 .btn-compare-header {
   white-space: normal;
   height: 77px;

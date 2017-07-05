@@ -34,7 +34,7 @@
                         </div>
                         <ul  class="pricing-content list-unstyled">
                             <li class="bg-color"><div class="compare-category">Hersteller</div></li>
-                            <li style="height:77px;"><div class="compare-category">Bewertung</div></li>
+                            <li><div class="compare-category compare-category-rating">Bewertung</div></li>
 
                             @foreach($topic->products[0]->groups as $group)
                                 @if($loop->iteration % 2)
@@ -53,7 +53,7 @@
                                 @else
                                     <li>
                                 @endif
-                                    <div class="compare-category">
+                                    <div class="compare-category compare-category-attribute">
                                         Besonderheiten
                                     </div>
                                 </li>
@@ -72,7 +72,7 @@
                                 {{$product->provider}}
                             </li>
                             <li>
-                                <ul class="list-unstyled list-inline rating compare-star" data-toggle="tooltip" title="{{$product->review_value / 10}} von 5">
+                                <ul class="list-unstyled list-inline rating compare-star compare-category-rating" data-toggle="tooltip" title="{{$product->review_value / 10}} von 5">
                                     @for ($i = 10; $i <= 50; $i += 10)
                                          @if ($product->review_value >= $i)
                                             <li class="compare-star"><i class="fa fa-star fa-2x"></i></li>
@@ -117,9 +117,11 @@
                                     <li>
                                 @endif
 
-                                @foreach($product->attributes as $attribute)
-                                    <span>{{$attribute->value}}</span>
-                                @endforeach
+                                    <div class="compare-category-attribute">
+                                        @foreach($product->attributes as $attribute)
+                                            <span class="compare-category-attribute-value">{{$attribute->value}}</span>
+                                        @endforeach
+                                    </div>
 
                                 </li>
 
