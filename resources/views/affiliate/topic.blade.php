@@ -13,7 +13,9 @@
                 <h3 class="pull-left breadcrumb">{{$topic->name}}</h3>
                 <ul class="pull-right breadcrumb">
                     <li><a href="{{route('affiliate.topic.compare', [$topic->name])}}">Vergleich</a></li>
-                    <li><a href="{{route('affiliate.topic.article', [$topic->name])}}">Neuigkeiten</a></li>
+                    @if($topic->articles->count() > 0)
+                        <li><a href="{{route('affiliate.topic.article', [$topic->name])}}">Neuigkeiten</a></li>
+                    @endif
                 </ul>
             </div>
         </div><!--/breadcrumbs-->

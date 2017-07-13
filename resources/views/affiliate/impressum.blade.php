@@ -8,7 +8,7 @@
             <div class="container">
                 <h1 class="pull-left">Impressum</h1>
             </div>
-        </div><!--/breadcrumbs-->
+        </div>
 
         <div class="container content-sm">
             <div class="container">
@@ -21,7 +21,7 @@
                     04107 Leipzig
                         </p>
                         <p>
-                            Mail: info [ a t ] checklein.de
+                            Mail: info [ a t ] {{$site->url}}
                         </p>
 
                         <p>
