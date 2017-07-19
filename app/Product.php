@@ -45,12 +45,13 @@ class Product extends Model
                 ->limit($count)->get(['product.id as id', 'product.name as name', 'product.topic_id as topic_id', 'product.image as image']);
     }
 
-    public static function getDistinctProviders($site_id) {
+    public static function getDistinctProviders($site_id, $count) {
         return DB::table('product')
                 ->select('provider')
                 ->join('topic', 'product.topic_id', '=', 'topic.id')
                 ->where('topic.site_id', $site_id)
                 ->groupBy('provider')
+                ->limit($count)
                 ->get();
     }
 

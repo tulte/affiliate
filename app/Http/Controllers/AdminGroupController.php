@@ -17,7 +17,7 @@ class AdminGroupController extends Controller {
 
     public function edit($id) {
         $group = Group::find($id);
-        if($topic) {
+        if($group) {
             return view('admin.group.edit', ['group' => $group]);
         }
         return redirect()->back();

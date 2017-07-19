@@ -30,7 +30,7 @@
 
             <!-- Pricing Mega v1 -->
             <div class="row no-space-pricing pricing-mega-v1">
-                <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                <div class="col-md-2 col-sm-6 hidden-sm hidden-xs">
                     <div class="pricing hidden-area">
                         <div class="pricing-head compare-image-container">
                         </div>
@@ -51,9 +51,9 @@
                             @endforeach
 
                                 @if($topic->products[0]->groups->count() % 2)
-                                    <li class="bg-color">
-                                @else
                                     <li>
+                                @else
+                                    <li class="bg-color">
                                 @endif
                                     <div class="compare-category compare-category-attribute">
                                         Besonderheiten
@@ -99,7 +99,13 @@
                                 @endif
 
                                 @if($product_group)
-                                    @if($product_group->pivot->type == 'ICON')
+                                    @if($product_group->pivot->type == 'BOOLEAN')
+                                        @if($product_group->pivot->value == '1')
+                                            <i class="fa fa-check"></i>
+                                        @else
+                                            <i class="fa fa-times"></i>
+                                        @endif
+                                    @elseif($product_group->pivot->type == 'ICON')
                                         <i class="fa {{$product_group->pivot->value}}"></i>
                                     @else
                                         {{$product_group->pivot->value}}
@@ -114,9 +120,9 @@
 
 
                                 @if($topic->products[0]->groups->count() % 2)
-                                    <li class="bg-color">
-                                @else
                                     <li>
+                                @else
+                                    <li class="bg-color">
                                 @endif
 
                                     <div class="compare-category-attribute">
@@ -131,7 +137,7 @@
                         <div class="btn-group btn-group-justified">
                             <a href="{{$product->link}}" class="btn-u btn-block" target="_blank">
                                 <i class="fa fa-amazon"></i>
-                                Angebot für {{$product->price}}€
+                                Angebot für {{substr($product->price,0 , strlen($product->price) - 2) . ',' . substr($product->price,-2)}} €
                             </a>
                         </div>
                     </div>

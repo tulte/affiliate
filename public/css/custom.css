@@ -92,3 +92,11 @@ table.dataTable {
   margin-top:15px;
   margin-bottom:10px;
 }
+
+.product-block {
+  height: 260px;
+}
+
+.provider-block {
+  height: 120px;
+}

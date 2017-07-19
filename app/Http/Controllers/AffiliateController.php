@@ -13,8 +13,8 @@ class AffiliateController extends Controller {
     public function index() {
         $site = view()->shared('site');
         $articles = Article::findLastArticlesBySiteId($site->id,4);
-        $products = Product::findLastProductsBySiteId($site->id,4);
-        $providers = Product::getDistinctProviders($site->id);
+        $products = Product::findLastProductsBySiteId($site->id,6);
+        $providers = Product::getDistinctProviders($site->id,5);
 
         return view('affiliate.index', ['articles' => $articles, 'products' => $products, 'providers' => $providers]);
     }

@@ -60,14 +60,3 @@
 
 @endsection
 
-@section('scripts')
-
-<script type="text/javascript">
-
-$(function() {
-    $('#intro').summernote();
-});
-
-</script>
-
-@endsection

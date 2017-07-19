@@ -14,7 +14,7 @@ use App\Attribute;
 
 class AdminProductController extends Controller {
 
-    private $TYPES = ['ICON' => 'ICON', 'TEXT' => 'TEXT'];
+    private $TYPES = ['BOOLEAN' => 'BOOLEAN', 'ICON' => 'ICON', 'TEXT' => 'TEXT'];
 
     public function index() {
         $products = Product::all();

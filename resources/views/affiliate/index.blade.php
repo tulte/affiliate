@@ -21,18 +21,20 @@
             <div class="row margin-bottom-40 centered">
                 @foreach($site->topics as $topic)
                     <div class="col-md-4 col-sm-6">
-                        <div class="service-block service-block-blue service-or">
-                            <div class="service-bg"></div>
-                            <h2 class="heading-md"><a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a></h2>
-                            <p>{!! $topic->intro !!}</p>
-                        </div>
+                        <a href="{{route('affiliate.topic', [$topic->name])}}" >
+                            <div class="service-block service-block-blue service-or product-block">
+                                <div class="service-bg"></div>
+                                <h2 class="heading-md">{{$topic->name}}</h2>
+                                <p>{{  count(explode("\n",wordwrap($topic->intro, 150))) > 1 ? explode("\n",wordwrap($topic->intro, 150))[0] . ' ...' : $topic->intro   }}</p>
+                            </div>
+                        </a>
                     </div>
                 @endforeach
             </div>
 
             <div class="title-box-v2">
                 <h2>Produkte</h2>
-                <p>Neue Produkte im Vergleich</p>
+                <p>Hier sind die neusten Produkte aus den Vergleichen</p>
             </div>
             <div class="container content-md">
                 <ul class="row list-row margin-bottom-30">
@@ -91,13 +93,13 @@
             <div class="container content">
                 <div class="title-box-v2">
                     <h2>Hersteller</h2>
-                    <p>Unsere Herstellern aus den Vergleichen</p>
+                    <p>Eine Auswahl der unterschiedlichen Hersteller aus den Vergleichen</p>
                 </div>
 
                 <div class="row margin-bottom-40 centered">
                     @foreach($providers as $provider)
                         <div class="col-md-2 col-sm-3">
-                            <div class="service-block service-block-blue service-or">
+                            <div class="service-block service-block-blue service-or provider-block">
                                 <p>{{$provider->provider}}</p>
                             </div>
                         </div>
