@@ -35,7 +35,7 @@ class Site extends Model
     }
 
     public static function findByUrl($value)  {
-        return self::where('url', (string)$value)->first();
+        return self::where('url' , 'like', '%' . (string)$value)->first();
     }
 
     public function topics() {
