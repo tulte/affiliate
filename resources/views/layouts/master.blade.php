@@ -12,13 +12,13 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="@yield('title')">
         <meta name="twitter:description" content="@yield('description')">
-        <meta name="twitter:image" content="{{url()->current()}}/@yield('image')">
+        <meta name="twitter:image" content="{{url()->current()}}/{{$site->meta_image}}">
 
         <!-- Open Graph data -->
         <meta property="og:title" content="@yield('title')" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="{{url()->current()}}" />
-        <meta property="og:image" content="{{url()->current()}}/@yield('image')" />
+        <meta property="og:image" content="{{url()->current()}}/{{$site->meta_image}}" />
         <meta property="og:description" content="@yield('description')" />
         <meta property="og:site_name" content="Vergleiche und Informationen" />
 
