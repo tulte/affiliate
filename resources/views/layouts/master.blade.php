@@ -39,39 +39,42 @@
     <body>
 
         <div class="wrapper">
-        <!--=== Header ===-->
-        <div class="header">
-            <div class="container">
-                <!-- Logo -->
-                <a class="logo" href="/" >
-                <img src="/{{$site->meta_image}}" alt="Logo" width="120" height="60">
-                </a>
-                <!-- End Logo -->
 
-                <!-- Toggle get grouped for better mobile display -->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="fa fa-bars"></span>
-                </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+
+<!--=== Header v1 ===-->
+        <div class="header-v1">
+
+
+            <!-- Navbar -->
+            <div class="navbar navbar-default mega-menu" role="navigation">
                 <div class="container">
-                    <ul class="nav navbar-nav nav-main">
-                        @foreach($site->topics as $topic)
-                            <li>
-                                <a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a>
-                            </li>
-                        @endforeach
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="fa fa-bars"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img id="logo-header" src="/{{$site->meta_image}}" alt="Logo">
+                        </a>
+                    </div>
 
-                    </ul>
-                </div><!--/end container-->
-            </div><!--/navbar-collapse-->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+                        <ul class="nav navbar-nav nav-main">
+                            @foreach($site->topics as $topic)
+                                <li>
+                                    <a href="{{route('affiliate.topic', [$topic->name])}}" >{{$topic->name}}</a>
+                                </li>
+                            @endforeach
 
-                <!-- End Toggle -->
-            </div><!--/end container-->
-
-
+                        </ul>
+                    </div><!--/navbar-collapse-->
+                </div>
+            </div>
+            <!-- End Navbar -->
         </div>
+        <!--=== End Header v1 ===-->
 
         @yield('content')
 

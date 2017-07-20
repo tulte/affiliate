@@ -100,3 +100,7 @@ table.dataTable {
 .provider-block {
   height: 120px;
 }
+
+.header {
+  height: 120px;
+}
