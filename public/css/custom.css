@@ -109,3 +109,8 @@ table.dataTable {
 .header {
   height: 120px;
 }
+
+.background-index {
+  min-height: 220px;
+  height: 220px;
+}
