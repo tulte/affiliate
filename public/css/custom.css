@@ -99,6 +99,11 @@ table.dataTable {
 
 .provider-block {
   height: 120px;
+  width: 140px;
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .header {
