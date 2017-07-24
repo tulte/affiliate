@@ -9,7 +9,7 @@
 
 
         <!--=== Job Img ===-->
-        <div class="job-img margin-bottom-30 background-index" style="background:url(/{{$site->background}}) no-repeat">
+        <div class="job-img background-index" style="background:url(/{{$site->background}}) no-repeat">
             <div class="job-banner">
                 <h2>{!! $site->intro !!}</h2>
             </div>
