@@ -39,6 +39,6 @@ def format_amazon_product(amazon_product):
 
 
 for product_id in affiliate_product_ids():
-    amazon_product = amazon_product(product_id)
-    formated_amazon_product = format_amazon_product(amazon_product)
+    aproduct = amazon_product(product_id)
+    formated_amazon_product = format_amazon_product(aproduct)
     affiliate_update_product(formated_amazon_product)
