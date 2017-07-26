@@ -28,7 +28,7 @@ def affiliate_update_product(product):
 
 
 def amazon_product(product_id):
-    return amazon.lookup_bulk(ItemId=product_id)
+    return amazon.lookup(ItemId=product_id)
 
 
 def format_amazon_product(amazon_product):
