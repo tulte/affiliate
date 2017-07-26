@@ -5,7 +5,7 @@ from lib.config import Config
 from lib.database import MySQLDatabase
 
 import sys
-
+import time
 
 # config
 config_file = sys.argv[1]
@@ -42,3 +42,5 @@ for product_id in affiliate_product_ids():
     aproduct = amazon_product(product_id)
     formated_amazon_product = format_amazon_product(aproduct)
     affiliate_update_product(formated_amazon_product)
+    # spam amazon api
+    time.sleep(5)
