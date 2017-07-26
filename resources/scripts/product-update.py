@@ -13,6 +13,7 @@ config = Config(config_file)
 
 # database
 db = MySQLDatabase(config.get('DB_USERNAME'), config.get('DB_PASSWORD'), config.get('DB_DATABASE'))
+amazon = AmazonAPI(config.get('AMAZON_APP_ID'), config.get('AMAZON_APP_SECRET'), config.get('AMAZON_USER'), region='DE')
 
 
 def affiliate_product_ids():
@@ -20,28 +21,24 @@ def affiliate_product_ids():
     return [product['identifier'] for product in products]
 
 
-def affiliate_update_products(formated_amazon_products):
-    for id, product in formated_amazon_products.iteritems():
-        query = "UPDATE product SET price={} WHERE identifier='{}'".format(product['price'], id)
-        db.db_execute(query)
-        print query
+def affiliate_update_product(product):
+    query = "UPDATE product SET price={} WHERE identifier='{}'".format(product['price'], product['asni'])
+    db.db_execute(query)
+    print query
 
 
-def amazon_products(items):
-    amazon = AmazonAPI(config.get('AMAZON_APP_ID'), config.get('AMAZON_APP_SECRET'), config.get('AMAZON_USER'), region='DE')
-    return amazon.lookup_bulk(ItemId=items)
+def amazon_product(product_id):
+    return amazon.lookup_bulk(ItemId=product_id)
 
 
-def format_amazon_products(amazon_products):
-    ret = {}
-    for amazon_product in amazon_products:
-        ret[amazon_product.asin] = {
-            'price': amazon_product.simple_price
-        }
-    return ret
+def format_amazon_product(amazon_product):
+    return {
+        'price': amazon_product.simple_price,
+        'asni': amazon_product.asin
+    }
 
 
-product_ids = affiliate_product_ids()
-amazon_products = amazon_products(','.join(product_ids))
-formated_amazon_products = format_amazon_products(amazon_products)
-affiliate_update_products(formated_amazon_products)
+for product_id in affiliate_product_ids():
+    amazon_product = amazon_product(product_id)
+    formated_amazon_product = format_amazon_product(amazon_product)
+    affiliate_update_product(formated_amazon_product)
