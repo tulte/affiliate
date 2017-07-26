@@ -29,7 +29,7 @@ def affiliate_update_products(formated_amazon_products):
 
 def amazon_products(items):
     amazon = AmazonAPI(config.get('AMAZON_APP_ID'), config.get('AMAZON_APP_SECRET'), config.get('AMAZON_USER'), region='DE')
-    return amazon.lookup_bulk(ItemId='B072QX5LGH, B001GOPRC0')
+    return amazon.lookup_bulk(ItemId=items)
 
 
 def format_amazon_products(amazon_products):
