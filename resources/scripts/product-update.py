@@ -18,7 +18,7 @@ amazon = AmazonAPI(config.get('AMAZON_APP_ID'), config.get('AMAZON_APP_SECRET'),
 
 
 def affiliate_product_ids():
-    products = db.db_result_name('SELECT identifier FROM product')
+    products = db.db_result_name('SELECT identifier FROM product limit 1')
     return [product['identifier'] for product in products]
 
 
@@ -51,5 +51,3 @@ for product_id in affiliate_product_ids():
     aproduct = amazon_product(product_id)
     formated_amazon_product = format_amazon_product(aproduct)
     affiliate_update_product(formated_amazon_product)
-    # spam amazon api
-    time.sleep(5)

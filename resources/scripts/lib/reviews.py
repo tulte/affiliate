@@ -21,7 +21,8 @@ class AmazonReviews:
         self.data = BeautifulSoup(html, 'html.parser')
 
     def _read_data(self, url):
-        r = requests.get(url)
+        headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+        r = requests.get(url, headers=headers)
         return r.text
 
     @property

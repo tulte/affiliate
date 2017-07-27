@@ -8,6 +8,9 @@ from lxml import objectify, etree
 import dateutil.parser
 from decimal import Decimal
 
+import random
+import time
+from urllib2 import HTTPError
 
 # https://kdp.amazon.com/help?topicId=A1CT8LK6UW2FXJ
 DOMAINS = {
@@ -143,9 +146,15 @@ class AmazonAPI(object):
             kwargs['Version'] = '2013-08-01'
 
         self.api = bottlenose.Amazon(
-            aws_key, aws_secret, aws_associate_tag, **kwargs)
+            aws_key, aws_secret, aws_associate_tag, ErrorHandler=self.error_handler, **kwargs)
         self.aws_associate_tag = aws_associate_tag
         self.region = kwargs.get('Region', 'US')
+
+    def error_handler(self, err):
+        ex = err['exception']
+        if isinstance(ex, HTTPError) and ex.code == 503:
+            time.sleep(random.expovariate(0.1))
+            return True
 
     def lookup(self, ResponseGroup="Large", **kwargs):
         """Lookup an Amazon Product.
