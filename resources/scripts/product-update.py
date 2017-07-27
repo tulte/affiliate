@@ -18,14 +18,13 @@ amazon = AmazonAPI(config.get('AMAZON_APP_ID'), config.get('AMAZON_APP_SECRET'),
 
 
 def affiliate_product_ids():
-    products = db.db_result_name('SELECT identifier FROM product limit 1')
+    products = db.db_result_name('SELECT identifier FROM product')
     return [product['identifier'] for product in products]
 
 
 def affiliate_update_product(product):
     query = "UPDATE product SET price={}, review_count={}, review_value={} WHERE identifier='{}'".format(product['price'], product['review_count'], product['review_value'], product['asni'])
     db.db_execute(query)
-    print query
 
 
 def amazon_product(product_id):

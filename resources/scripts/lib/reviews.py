@@ -14,7 +14,6 @@ class AmazonReviews:
     REVIEW_SUMMARY_CLASS = 'crIFrameNumCustReviews'
 
     def __init__(self, url):
-        print url
         self.url = url
         html = self._read_data(url)
         # with codecs.open('reviews.html', 'r', encoding='utf8') as f:
