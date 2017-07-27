@@ -18,7 +18,7 @@ amazon = AmazonAPI(config.get('AMAZON_APP_ID'), config.get('AMAZON_APP_SECRET'),
 
 
 def affiliate_product_ids():
-    products = db.db_result_name('SELECT identifier FROM product limit 1')
+    products = db.db_result_name('SELECT identifier FROM product')
     return [product['identifier'] for product in products]
 
 
