@@ -1,4 +1,6 @@
-import datetime
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from itertools import islice
 
 import bottlenose
