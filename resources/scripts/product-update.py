@@ -25,6 +25,7 @@ def affiliate_product_ids():
 def affiliate_update_product(product):
     query = "UPDATE product SET price={}, review_count={}, review_value={} WHERE identifier='{}'".format(product['price'], product['review_count'], product['review_value'], product['asni'])
     db.db_execute(query)
+    print query
 
 
 def amazon_product(product_id):
