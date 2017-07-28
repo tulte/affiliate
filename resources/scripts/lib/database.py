@@ -8,6 +8,7 @@ class MySQLDatabase:
 
     def __init__(self, user, password, schema):
         self.db = MySQLdb.connect("localhost", user, password, schema)
+        self.db.autocommit = True
         self.db.set_character_set('utf8')
 
     def db_result(self, query):
