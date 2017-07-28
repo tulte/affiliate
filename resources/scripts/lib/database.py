@@ -40,6 +40,7 @@ class MySQLDatabase:
         cursor = self.db.cursor()
         # execute SQL query using execute() method.
         cursor.execute(query)
+        self.db.commit()
         ret = cursor.lastrowid
         cursor.close()
         return ret
