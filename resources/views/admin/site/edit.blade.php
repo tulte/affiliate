@@ -22,6 +22,16 @@
                                     <input type="text" name="url" value="{{$site->url}}"/>
                                 </label>
 
+                                <label class="label">Intro</label>
+                                <label class="input">
+                                    <input type="text" name="intro" value="{{$site->intro}}"/>
+                                </label>
+
+                                <label class="label">Description</label>
+                                <label class="input">
+                                    <textarea rows="10" cols="105" id="description" name="description">{{$site->description}}</textarea>
+                                </label>
+
                                 <label class="label">Meta Title</label>
                                 <label class="input">
                                     <input type="text" name="meta_title" value="{{$site->meta_title}}"/>
@@ -52,11 +62,6 @@
                                     <input type="text" name="quotation_author" value="{{$site->quotation_author}}"/>
                                 </label>
 
-                                <label class="label">Intro</label>
-                                <label class="input">
-                                    <textarea rows="10" cols="105" id="intro" name="intro">{{$site->intro}}</textarea>
-                                </label>
-
                             </section>
                         </fieldset>
 
@@ -76,7 +81,7 @@
 <script type="text/javascript">
 
 $(function() {
-    $('#intro').summernote();
+    $('#description').summernote();
 });
 
 </script>

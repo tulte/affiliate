@@ -114,3 +114,8 @@ table.dataTable {
   min-height: 220px;
   height: 220px;
 }
+
+
+.site-description {
+    font-size: 13px;
+}

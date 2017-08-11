@@ -11,10 +11,17 @@
         <!--=== Job Img ===-->
         <div class="job-img background-index" style="background:url(/{{$site->background}}) no-repeat">
             <div class="job-banner">
-                <h2>{!! $site->intro !!}</h2>
+                <h2>{{ $site->intro }}</h2>
             </div>
         </div>
         <!--=== End Job Img ===-->
+
+
+        <div class="bg-grey">
+                <div class="container content-md site-description">
+                {!! $site->description !!}
+            </div>
+        </div>
 
         <!--=== Content Part ===-->
         <div class="container content">
@@ -34,7 +41,7 @@
 
             <div class="title-box-v2">
                 <h2>Produkte</h2>
-                <p>Hier sind die neusten Produkte aus den Vergleichen</p>
+                <p>Wir suchen für sie ständig nach neuen Produkten. Hier sehen sie eine kleine Auswahl der neuen Produkte aus den Vergleichen. Wir hoffen für sie ist etwas dabei.</p>
             </div>
             <div class="container content-md">
                 <ul class="row list-row margin-bottom-30">
@@ -93,7 +100,7 @@
             <div class="container content">
                 <div class="title-box-v2">
                     <h2>Hersteller</h2>
-                    <p>Eine Auswahl der unterschiedlichen Hersteller aus den Vergleichen</p>
+                    <p>Die Hersteller der Produkte sind vielfältig wie die Produkte selbst. Damit sie sich aber schon einmal einen Überblich verschaffen können, zeigen wir ihnen hier eine Auswahl der unterschiedlichen Hersteller aus den Vergleichen.</p>
                 </div>
 
                 <div class="row margin-bottom-40 centered">

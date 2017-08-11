@@ -84,6 +84,7 @@ class AdminSiteController extends Controller {
         $site->intro = $request->intro;
         $site->meta_title = $request->meta_title;
         $site->meta_description = $request->meta_description;
+        $site->description = $request->description;
         $site->quotation_text = $request->quotation_text;
         $site->quotation_author = $request->quotation_author;
         $site->save();

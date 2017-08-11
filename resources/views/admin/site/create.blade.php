@@ -22,6 +22,16 @@
                                     <input type="text" name="url" value=""/>
                                 </label>
 
+                                <label class="label">Intro</label>
+                                <label class="input">
+                                    <input type="text" name="intro" value=""/>
+                                </label>
+
+                                <label class="label">Description</label>
+                                <label class="input">
+                                    <textarea rows="10" cols="105" id="description" name="description"></textarea>
+                                </label>
+
                                 <label class="label">Meta Title</label>
                                 <label class="input">
                                     <input type="text" name="meta_title" value=""/>
@@ -52,11 +62,6 @@
                                     <input type="text" name="quotation_author" value=""/>
                                 </label>
 
-                                <label class="label">Intro</label>
-                                <label class="input">
-                                    <textarea rows="10" cols="105" id="intro" name="intro"></textarea>
-                                </label>
-
                             </section>
                         </fieldset>
 
@@ -75,7 +80,7 @@
 <script type="text/javascript">
 
 $(function() {
-    $('#intro').summernote();
+    $('#description').summernote();
 });
 
 </script>
