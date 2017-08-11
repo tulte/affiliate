@@ -55,7 +55,7 @@
                             <span class="fa fa-bars"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img id="logo-header" src="/{{$site->meta_image}}" alt="Logo">
+                            <img id="logo-header" alt="{{$site->meta_title}}" src="/{{$site->meta_image}}" alt="Logo">
                         </a>
                     </div>
 

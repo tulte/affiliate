@@ -51,7 +51,7 @@
                                 <div class="content-boxes-v2 text-center block-grid-v1 rounded">
                                     <h3 class="heading-md"><strong>{{$product->name}}</strong></h3>
                                     <figure>
-                                        <img src="/{{$product->image}}" alt="" width="218" height="218">
+                                        <img src="/{{$product->image}}" alt="{{$product->name}}" width="218" height="218">
                                     </figure>
                                 </div>
                             </a>

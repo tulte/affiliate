@@ -67,7 +67,11 @@
                     <div class="pricing">
                         <div class="pricing-head">
                             <a href="{{$product->link}}" class="btn-u btn-block btn-compare-header" target="_blank">{{$product->name}}</a>
-                            <h4><img src="/{{$product->image}}" class="compare-image" /></h4>
+                            <h4>
+                                <a href="{{$product->link}}" target="_blank">
+                                <img src="/{{$product->image}}" alt="{{$product->name}}" class="compare-image" />
+                                </a>
+                            </h4>
                         </div>
                         <ul class="pricing-content list-unstyled ">
                             <li class="bg-color">
