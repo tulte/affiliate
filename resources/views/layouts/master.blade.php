@@ -22,6 +22,7 @@
         <meta property="og:description" content="@yield('description')" />
         <meta property="og:site_name" content="Vergleiche und Informationen" />
 
+        <link rel="icon" type="image/png" href="/{{$site->meta_image}}" />
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/style.css">
@@ -55,7 +56,7 @@
                             <span class="fa fa-bars"></span>
                         </button>
                         <a class="navbar-brand" href="/">
-                            <img id="logo-header" alt="{{$site->meta_title}}" src="/{{$site->meta_image}}" alt="Logo">
+                            <img id="logo-header" alt="{{$site->meta_title}} {{$site->url}}" src="/{{$site->meta_image}}" alt="Logo">
                         </a>
                     </div>
 
@@ -87,7 +88,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                                2017 &copy; Copyright
+                                {{$site->url}} 2017 &copy; Copyright
                                 <a href="/datenschutz">Datenschutz</a> | <a href="/impressum">Impressum</a>
                             </p>
                         </div>
