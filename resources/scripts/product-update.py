@@ -22,10 +22,18 @@ def affiliate_product_ids():
     return [product['identifier'] for product in products]
 
 
+def generate_update_product_set_query_part(product, fields):
+    entries = []
+    for field in fields:
+        if product[field] is not None:
+            entries.append("{}='{}'".format(field, product[field]))
+    return ','.join(entries)
+
+
 def affiliate_update_product(product):
-    query = "UPDATE product SET price={}, review_count={}, review_value={} WHERE identifier='{}'".format(product['price'], product['review_count'], product['review_value'], product['asni'])
+    query_set_part = generate_update_product_set_query_part(product, ['price', 'review_count', 'review_value'])
+    query = "UPDATE product SET " + query_set_part + " WHERE identifier='{}'".format(product['asni'])
     db.db_execute(query)
-    print query
 
 
 def amazon_product(product_id):
